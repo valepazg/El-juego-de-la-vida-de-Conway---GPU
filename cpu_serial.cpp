@@ -9,20 +9,20 @@
 using namespace std;
 
 // se usa unsigned char porque es la estructura mas pequeña para guardar solo un bit 0 o 1
-typedef unsigned char ubyte;
+typedef unsigned int uint;
  
 // se trata el universo bidimensional dentro de un arreglo unidimensional para mejorar eficiencia
 // es decir la celda (x,y) en un espacio bidimensional, es ahora (y * ancho + x) en un espacio unidimensional
 // siendo "ancho" el tamaño en x del universo
-ubyte* m_data;
-ubyte* m_resultData;
+uint* m_data;
+uint* m_resultData;
  
 size_t m_worldWidth;
 size_t m_worldHeight;
 size_t m_dataLength;  // m_worldWidth * m_worldHeight
 
 // funcion para contar las celdas vivas alrededor de la celda (x1,y1)
-ubyte countAliveCells(size_t x0, size_t x1, size_t x2, size_t y0, size_t y1, size_t y2, ubyte *m_data) {
+uint countAliveCells(size_t x0, size_t x1, size_t x2, size_t y0, size_t y1, size_t y2, uint *&m_data) {
     return m_data[y0 + x0] + m_data[y0 + x1] + m_data[y0 + x2] + m_data[y1 + x0] + 
            m_data[y1 + x2] + m_data[y2 + x0] + m_data[y2 + x1] + m_data[y2 + x2];
 
@@ -30,7 +30,7 @@ ubyte countAliveCells(size_t x0, size_t x1, size_t x2, size_t y0, size_t y1, siz
 
 // funcion que calcula una iteracion del juego de la vida de Conway
 // actualiza el estado del universo guardado en m_data
-void computeIterationSerial(ubyte *m_data, ubyte *m_resultData) {
+void computeIterationSerial(uint *&m_data, uint *&m_resultData) {
 
     // calcular los vecinos en las filas alrededor de y1
     for (size_t y = 0; y < m_worldHeight; y++) {
@@ -46,10 +46,10 @@ void computeIterationSerial(ubyte *m_data, ubyte *m_resultData) {
             size_t x2 = (x + 1) % m_worldWidth;
             
             // para cada x,y1 se calcula el numero de celdas vivas en su vecindario   
-            ubyte aliveCells = countAliveCells(x0, x, x2, y0, y1, y2, m_data);
+            uint aliveCells = countAliveCells(x0, x, x2, y0, y1, y2, m_data);
             
             // la celda esta viva si hay 3 celdas vivas a su alrededor o si esta viva y ademas hay 2 celdas vivas alrededor
-            m_resultData[y1 + x] = aliveCells == 3 || (aliveCells == 2 && m_data[x + y1]) ? 1 : 0;
+            m_resultData[y1 + x] = (aliveCells == 3 || (aliveCells == 2 && m_data[x + y1])) ? 1 : 0;
         }
     }
     // se actualiza el estado del universo al fin de la operacion en el arreglo m_data
@@ -77,19 +77,20 @@ int main(){
     for (int i = 10; i < 13; i++){
         cout << "Grilla de tamano: 2^" << i << "x 2^" << i << endl;
         srand(time(nullptr));
-        m_worldWidth = pow(2, i);
-        m_worldHeight = pow(2, i);
-         m_dataLength = m_worldWidth * m_worldHeight;
+        m_worldWidth = pow(2,i);
+        m_worldHeight = pow(2,i);
+        m_dataLength = m_worldWidth * m_worldHeight;
             
         delete[] m_data;
         delete[] m_resultData;
 
-        ubyte* m_data = new ubyte[m_dataLength];
-        ubyte* m_resultData = new ubyte[m_dataLength];
+        uint* m_data = new uint[m_dataLength];
+        uint* m_resultData = new uint[m_dataLength];
 
         for (int j = 0; j < m_dataLength; j++) {
-            m_data[j] = ubyte(rand() % 2);
+            m_data[j] = uint(rand() % 2);
         }
+        
         
         for(int k  = 0; k < 10; k++){
 
@@ -107,6 +108,7 @@ int main(){
             // se calcula el numero de celdas evaluadas por segundo
             size_t num_cells_evaluated = m_worldWidth * m_worldHeight * 8;
             double cells_per_second = static_cast<double>(num_cells_evaluated)/static_cast<double>(total_time_sec);
+
 
             cout << "Celdas evaluadas por segundo: " << cells_per_second <<" en " << total_time_sec << " segundos. Intento: " << k+1 <<  endl;
             // se guardan los datos en un archivo csv
