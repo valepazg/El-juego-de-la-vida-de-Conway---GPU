@@ -32,7 +32,7 @@ using std::chrono::milliseconds;
 int main(void){
 
     // abrir un archivo csv para guardar los datos
-    ofstream file("opencl_simple.csv");
+    ofstream file("opencl_mod2.csv");
     if (!file.is_open()) {
         std::cerr << "Failed to open file\n";
         return 1;
@@ -49,14 +49,20 @@ int main(void){
         size_t worldHeight = pow(2,i);
         size_t dataLength;
         dataLength = worldWidth * worldWidth;
-        vector<uint> h_lifeData(dataLength);                // b vector 	
-        vector<uint> h_resultLifeData (dataLength);    // c = a + b, from compute device
+        vector<vector<uint>> h_lifeData(worldHeight, vector<uint>(worldWidth));               
+        vector<uint> h_tempLifeData(dataLength);               
+        vector<vector<uint>> h_resultLifeData(worldHeight, vector<uint>(worldWidth));                     	
+        // vector<uint> h_resultLifeData (dataLength);    // c = a + b, from compute device
 
         
         srand(time(nullptr)); 
 
-        for (int j = 0; j < dataLength; j++) {
-            h_lifeData[j] = uint(rand() % 2);
+        
+        for (int j = 0; j < worldHeight; j++) {
+            for(int l = 0; l < worldWidth; l++){
+                h_lifeData[j][l] = uint(rand() % 2);
+                h_tempLifeData[i * worldWidth + j] = h_lifeData[j][l];
+            }
         }
 
         try {
@@ -64,26 +70,35 @@ int main(void){
             cl::Context context(DEVICE);
         
             // Load in kernel source, creating a program object for the context
-            cl::Program program(context, util::loadProgram("simpleLifeKernel.cl"), true);
+            cl::Program program(context, util::loadProgram("mod2LifeKernel.cl"), true);
         
             // Get the command queue
             cl::CommandQueue queue(context);
         
             // Create the kernel functor
 
-            auto simpleLifeKernel = cl::make_kernel<cl::Buffer, cl::Buffer, size_t, size_t>(program, "simpleLifeKernel");
+            auto mod2LifeKernel = cl::make_kernel<cl::Buffer, cl::Buffer, size_t, size_t>(program, "mod2LifeKernel");
         
-            cl::Buffer d_lifeData(context, begin(h_lifeData), end(h_lifeData), true);
-            cl::Buffer d_resultLifeData(context, CL_MEM_WRITE_ONLY, sizeof(uint) * dataLength);
+            cl::Buffer d_lifeData(context, begin(h_tempLifeData), end(h_tempLifeData), true);
+            cl::Buffer d_resultLifeData(context, CL_MEM_READ_WRITE, sizeof(uint) * dataLength);
+
             
             for(int k=0; k<10; k++){
                 
                 auto start_time = high_resolution_clock::now();
                 
-                simpleLifeKernel(cl::EnqueueArgs(queue,cl::NDRange(dataLength)), d_lifeData, d_resultLifeData, worldWidth, worldHeight);
+                mod2LifeKernel(cl::EnqueueArgs(queue,cl::NDRange(worldHeight, worldWidth)), d_lifeData, d_resultLifeData, worldWidth, worldHeight);
                 queue.finish();
                 swap(d_lifeData, d_resultLifeData);
-                cl::copy(queue, d_lifeData, begin(h_lifeData), end(h_lifeData));
+
+ 
+                cl::copy(queue, d_lifeData, begin(h_tempLifeData), end(h_tempLifeData));
+
+                for (int i = 0; i < worldHeight; ++i) {
+                    for (int j = 0; j < worldWidth; ++j) {
+                        h_lifeData[i][j] = h_tempLifeData[i * worldWidth + j];
+                    }
+                }
                 
                 auto end_time = high_resolution_clock::now();
                 
@@ -97,9 +112,10 @@ int main(void){
                 size_t num_cells_evaluated = worldWidth * worldHeight;
                 double cells_per_second = static_cast<double>(num_cells_evaluated)/static_cast<double>(total_time_sec);
                 
-                cout << "Celdas evaluadas por segundo: " << cells_per_second <<" en " << total_time_sec << " segundos. Iteracion: " << k+1 <<  endl;
+                cout << "Celdas evaluadas por segundo: " << cells_per_second <<" en " << total_time_sec << " segundos. Intento: " << k+1 <<  endl;
                 // se guardan los datos en un archivo csv
                 file << worldWidth << "," << worldHeight << "," << k << "," << cells_per_second << "," << total_time_sec << "\n";
+
             }
         }
 
@@ -107,6 +123,7 @@ int main(void){
             cout << "Exception\n"; 
             cerr << "ERROR: " << err.what() << "(" << err_code(err.err()) << ")" << std::endl;
         }
+
     }
 
     file.close();

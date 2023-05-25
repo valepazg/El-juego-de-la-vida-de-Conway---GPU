@@ -71,10 +71,10 @@ int main(){
         return 1;
     }
     // escribir la primera fila con los encabezados de las tablas del .csv
-    file << "N, M, Try, Cells/sec, Time_sec\n";
+    file << "N, M, Iteration, Cells/sec, Time_sec\n";
     
     // para cada tamaño de grilla de 2^i x 2^i, se realizan 10 iteraciones del juego de la vida de Conway
-    for (int i = 10; i < 13; i++){
+    for (int i = 5; i < 11; i++){
         cout << "Grilla de tamano: 2^" << i << "x 2^" << i << endl;
         srand(time(nullptr));
         m_worldWidth = pow(2,i);
@@ -106,11 +106,11 @@ int main(){
             double total_time_sec = total_time / 1000;
 
             // se calcula el numero de celdas evaluadas por segundo
-            size_t num_cells_evaluated = m_worldWidth * m_worldHeight * 8;
+            size_t num_cells_evaluated = m_worldWidth * m_worldHeight;
             double cells_per_second = static_cast<double>(num_cells_evaluated)/static_cast<double>(total_time_sec);
 
 
-            cout << "Celdas evaluadas por segundo: " << cells_per_second <<" en " << total_time_sec << " segundos. Intento: " << k+1 <<  endl;
+            cout << "Celdas evaluadas por segundo: " << cells_per_second <<" en " << total_time_sec << " segundos. Iteracion: " << k+1 <<  endl;
             // se guardan los datos en un archivo csv
             file << m_worldWidth << "," << m_worldHeight << "," << k << "," << cells_per_second << "," << total_time_sec << "\n";
         }
