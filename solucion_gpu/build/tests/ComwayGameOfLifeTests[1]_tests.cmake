@@ -1,0 +1,1 @@
+set( ComwayGameOfLifeTests_TESTS)
