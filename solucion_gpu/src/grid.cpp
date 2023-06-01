@@ -112,6 +112,20 @@ Grid::Grid(string grid){
 };
 
 
+Grid::Grid(Grid &grid){
+  int rows = grid.getRows();
+  int cols = grid.getCols();
+
+   std::cerr << "Creating grid next" << rows<< " "<<cols<<std::endl;
+   this->matrix.resize(rows, vector<bool>(cols, false));
+   for (int i = 0; i < rows; i++)  {
+	 for ( int j = 0; j < cols; j++) {
+	   this->matrix[i][j] = grid.check_next(i,j);
+	 }
+   }
+};
+
+
 Grid::Grid(std::filesystem::path path) {
   if (std::filesystem::is_regular_file(path)){
 	  std::ifstream file(path, std::ios::in | std::ios::binary);
@@ -138,35 +152,76 @@ Grid::Grid(std::filesystem::path path) {
 bool Grid::check_next(unsigned xin, unsigned yin){
   int rows = getRows();
   int cols = getCols();
+
   if (xin<rows && yin<cols) {
 	  unsigned check = 0;
-	  unsigned up = xin - 1;
+	  unsigned up = 0;
+	  bool upflag = false;
+	  //std::cerr << "================" << std::endl;
+
+	  //std::cerr << "xin " << xin << std::endl;
+
+	  if (xin > 0){
+		upflag = true;
+		up = xin - 1;
+    	//std::cerr << "up " << up << std::endl;
+
+	  }
+      //std::cerr << "up " << up << std::endl;
+	 
 	  unsigned down = xin + 1;
-	  unsigned left = yin - 1;
+	  
+
+	  unsigned left = 0;
+	  bool leftflag = false;
+
+	  if (yin>0){
+		leftflag=true;
+		left = yin - 1;
+	  }
+
 	  unsigned right = yin + 1;
+
 	  bool cell =  this->matrix[xin][yin];
-	  if (up>=0){
-		if (this->matrix[xin][up]) {
+
+	  // std::cerr << "X ->" <<xin << " :Y ->"<< yin << std::endl;
+	  // std::cerr << "up " << up << std::endl;
+	  // std::cerr << "down " << down << std::endl;
+	  // std::cerr << "left " << left << std::endl;
+	  // std::cerr << "right " << right << std::endl;
+	  
+
+	  if (up>=0 &&upflag){
+		if (this->matrix[up][yin]) {
+		  //std::cerr << "up" << std::endl;
+
 		  check++;
 		}
 	  }
 	  if (down < rows) {
-		if (this->matrix[xin][down]) {
+		if (this->matrix[down][yin]) {
+		  //std::cerr << "down" << std::endl;
 		  check++;
 		}
 	  }
 
-	  if (left>=0){
-		if (this->matrix[xin][up]) {
+	  if (left>=0 && leftflag){
+		if (this->matrix[xin][left]) {
+		  //std::cerr << "left" << std::endl;
 		  check++;
 		}
 	  }
 	  if (right < cols) {
-		if (this->matrix[xin][down]) {
+		if (this->matrix[xin][right]) {
+		  //std::cerr << "right" << std::endl;
 		  check++;
 		}
 	  }
 	  
+	  // std::cerr << "X ->" <<xin << " :Y ->"<< yin << std::endl;
+	  // std::cerr << "cell ->" <<cell<< std::endl;
+	  // std::cerr << "check ->" <<check<< std::endl;
+
 	  if (cell==false && check==3) {
 		return true;
 	  } else if (cell==true && (check==2 || check==3)) {
@@ -215,8 +270,35 @@ int Grid::getCols() const{
 };
 
 
+bool Grid::getValue(int i, int j){
+  if (i<getRows() && j<getCols()) {
+	return this->matrix[i][j];
+  } else {
+	throw std::invalid_argument("Indexes must be low than number of rows and cols");
+  }
+};
+
+
+
 void Grid::load_grid(vector<vector<bool>> &matrix) {
   this->matrix=matrix;
 }
 
 
+
+
+bool Grid::operator==(const Grid& other) const {
+	if (getRows() != other.getRows() || getCols() != other.getCols()){
+	  return false;
+	}
+
+	for (int i=0;i<getRows(); i++) {
+	for (int j=0;j<getCols(); j++) {
+	  int check = other.matrix[i][j];
+	  if(matrix[i][j]!=check) {
+		return false;
+	  }
+	}
+	}
+	return true;
+  }

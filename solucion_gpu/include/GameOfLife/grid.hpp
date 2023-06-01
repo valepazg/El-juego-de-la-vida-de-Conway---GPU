@@ -32,7 +32,8 @@ public:
   Grid(string grid);
   // load grid from file
   Grid(std::filesystem::path path);
-
+  // create the next grid
+  Grid(Grid &grid);
   // check next
   bool check_next(unsigned xin, unsigned yin);
   // load grid
@@ -45,7 +46,9 @@ public:
 
   int getRows() const;
   int getCols() const;
+  bool getValue(int i, int j);
 
+  bool operator==(const Grid& other) const;
 };
 
 vector<vector<bool>> validate_matrix_str(string grid);

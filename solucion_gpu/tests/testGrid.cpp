@@ -124,8 +124,103 @@ TEST(GridReadFromFileFail, TestFail_5) {
 
 // check
 TEST(GridCheckNext, BassicAssertions){
-  string matrix_str =  "X,O,O\nX,X,O\nO,O,X";
-  Grid grid(matrix_str);
-  // size is 3x3
+  string matrix_str = "X,O,O\nX,X,O\nX,O,X";
+  string next = "O,O,O\nX,O,O\nO,X,O";
+  vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
+  Grid grid(matrix_str);
+  Grid grid_next;
+  grid_next.load_grid(matrix_next);
+
+  std::cerr << "NOW" << std::endl;
+  std::cerr << grid << std::endl;
+  std::cerr << "NEXT" << std::endl;
+  std::cerr << grid_next << std::endl;
+
+  // size is 3x3
+  for (int i=0;i<3;i++) {
+	for (int j=0;j<3;j++) {
+	  int next_value = grid.check_next(i,j);
+	  EXPECT_EQ(next_value, matrix_next[i][j]);
+	}
+  }
 }
+
+
+// test getvalue
+TEST(GridCheckGetValue, BassicAssertions){
+  string matrix_str = "X,O,O\nX,X,O\nX,O,X";
+  vector<vector<bool>> matrix_next = validate_matrix_str(matrix_str);
+
+  Grid grid(matrix_str);
+
+  // size is 3x3
+  for (int i=0;i<3;i++) {
+	for (int j=0;j<3;j++) {
+	  int next_value = grid.getValue(i,j);
+	  EXPECT_EQ(next_value, matrix_next[i][j]);
+	}
+  }
+}
+
+
+
+// generate next grid and compare
+TEST(GridCheckNextUsingGrid, BassicAssertions){
+  string matrix_str = "X,O,O\nX,X,O\nX,O,X";
+  string next = "O,O,O\nX,O,O\nO,X,O";
+  vector<vector<bool>> matrix_next = validate_matrix_str(next);
+
+  Grid grid(matrix_str);
+  Grid grid_next;
+  grid_next.load_grid(matrix_next);
+
+
+  std::cerr << "Creating grid next test" << std::endl;
+  
+  Grid grid_test(grid);
+
+  std::cerr << "NOW" << std::endl;
+  std::cerr << grid << std::endl;
+  std::cerr << "NEXT TRUE" << std::endl;
+  std::cerr << grid_next << std::endl;
+  std::cerr << "NEXT TEST" << std::endl;
+  std::cerr << grid_test << std::endl;
+
+  // size is 3x3
+  for (int i=0;i<3;i++) {
+	for (int j=0;j<3;j++) {
+	  int next_value = grid_test.getValue(i,j);
+	  EXPECT_EQ(next_value, matrix_next[i][j]);
+	}
+  }
+}
+
+
+// generate next grid and compare with ==
+TEST(GridCheckCompareEq, BassicAssertions){
+  string matrix_str = "X,O,O\nX,X,O\nX,O,X";
+  string next = "O,O,O\nX,O,O\nO,X,O";
+  vector<vector<bool>> matrix_next = validate_matrix_str(next);
+
+  Grid grid(matrix_str);
+  Grid grid_next;
+  grid_next.load_grid(matrix_next);
+
+
+  std::cerr << "Creating grid next test" << std::endl;
+  
+  Grid grid_test(grid);
+
+  std::cerr << "NOW" << std::endl;
+  std::cerr << grid << std::endl;
+  std::cerr << "NEXT TRUE" << std::endl;
+  std::cerr << grid_next << std::endl;
+  std::cerr << "NEXT TEST" << std::endl;
+  std::cerr << grid_test << std::endl;
+
+  // size is 3x3
+  EXPECT_EQ(grid_test, grid_next);
+}
+
+
