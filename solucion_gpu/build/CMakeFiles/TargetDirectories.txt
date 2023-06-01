@@ -51,6 +51,7 @@
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/install.dir
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/list_install_components.dir
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/rebuild_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/testGrid.dir
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/edit_cache.dir
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/test.dir
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/CMakeFiles/ComwayGameOfLifeTests.dir

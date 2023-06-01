@@ -1,0 +1,60 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ee808/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ee808.dir/build.make CMakeFiles/cmTC_ee808.dir/build
+gmake[1]: se entra en el directorio '/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ee808.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -o CMakeFiles/cmTC_ee808.dir/src.c.o -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ee808
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee808.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_ee808.dir/src.c.o -o cmTC_ee808 
+/usr/bin/ld: CMakeFiles/cmTC_ee808.dir/src.c.o: en la función `main':
+src.c:(.text+0x2f): referencia a `pthread_create' sin definir
+/usr/bin/ld: src.c:(.text+0x3b): referencia a `pthread_detach' sin definir
+/usr/bin/ld: src.c:(.text+0x47): referencia a `pthread_cancel' sin definir
+/usr/bin/ld: src.c:(.text+0x58): referencia a `pthread_join' sin definir
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ee808.dir/build.make:106: cmTC_ee808] Error 1
+gmake[1]: se sale del directorio '/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_ee808/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d9ec5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d9ec5.dir/build.make CMakeFiles/cmTC_d9ec5.dir/build
+gmake[1]: se entra en el directorio '/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d9ec5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_d9ec5.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d9ec5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9ec5.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_d9ec5.dir/CheckFunctionExists.c.o -o cmTC_d9ec5  -lpthreads 
+/usr/bin/ld: no se puede encontrar -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d9ec5.dir/build.make:106: cmTC_d9ec5] Error 1
+gmake[1]: se sale del directorio '/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_d9ec5/fast] Error 2
+
+
+

@@ -187,6 +187,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+tests/CMakeFiles/testGrid.dir/rule:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/testGrid.dir/rule
+.PHONY : tests/CMakeFiles/testGrid.dir/rule
+
+# Convenience name for target.
+testGrid: tests/CMakeFiles/testGrid.dir/rule
+
+.PHONY : testGrid
+
+# fast build rule for target.
+testGrid/fast:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/testGrid.dir/build.make tests/CMakeFiles/testGrid.dir/build
+.PHONY : testGrid/fast
+
+# Convenience name for target.
 tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule:
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
 .PHONY : tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
@@ -201,39 +216,13 @@ ComwayGameOfLifeTests/fast:
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/build
 .PHONY : ComwayGameOfLifeTests/fast
 
-testAutomata.o: testAutomata.cpp.o
-
-.PHONY : testAutomata.o
-
-# target to build an object file
-testAutomata.cpp.o:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o
-.PHONY : testAutomata.cpp.o
-
-testAutomata.i: testAutomata.cpp.i
-
-.PHONY : testAutomata.i
-
-# target to preprocess a source file
-testAutomata.cpp.i:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.i
-.PHONY : testAutomata.cpp.i
-
-testAutomata.s: testAutomata.cpp.s
-
-.PHONY : testAutomata.s
-
-# target to generate assembly for a file
-testAutomata.cpp.s:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.s
-.PHONY : testAutomata.cpp.s
-
 testGrid.o: testGrid.cpp.o
 
 .PHONY : testGrid.o
 
 # target to build an object file
 testGrid.cpp.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/testGrid.dir/build.make tests/CMakeFiles/testGrid.dir/testGrid.cpp.o
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o
 .PHONY : testGrid.cpp.o
 
@@ -243,6 +232,7 @@ testGrid.i: testGrid.cpp.i
 
 # target to preprocess a source file
 testGrid.cpp.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/testGrid.dir/build.make tests/CMakeFiles/testGrid.dir/testGrid.cpp.i
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.i
 .PHONY : testGrid.cpp.i
 
@@ -252,6 +242,7 @@ testGrid.s: testGrid.cpp.s
 
 # target to generate assembly for a file
 testGrid.cpp.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/testGrid.dir/build.make tests/CMakeFiles/testGrid.dir/testGrid.cpp.s
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.s
 .PHONY : testGrid.cpp.s
 
@@ -269,9 +260,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ComwayGameOfLifeTests"
-	@echo "... testAutomata.o"
-	@echo "... testAutomata.i"
-	@echo "... testAutomata.s"
+	@echo "... testGrid"
 	@echo "... testGrid.o"
 	@echo "... testGrid.i"
 	@echo "... testGrid.s"
