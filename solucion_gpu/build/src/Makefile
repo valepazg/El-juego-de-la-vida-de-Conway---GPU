@@ -201,6 +201,33 @@ game_of_life_lib/fast:
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/build
 .PHONY : game_of_life_lib/fast
 
+cpu_serial.o: cpu_serial.cpp.o
+
+.PHONY : cpu_serial.o
+
+# target to build an object file
+cpu_serial.cpp.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.o
+.PHONY : cpu_serial.cpp.o
+
+cpu_serial.i: cpu_serial.cpp.i
+
+.PHONY : cpu_serial.i
+
+# target to preprocess a source file
+cpu_serial.cpp.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.i
+.PHONY : cpu_serial.cpp.i
+
+cpu_serial.s: cpu_serial.cpp.s
+
+.PHONY : cpu_serial.s
+
+# target to generate assembly for a file
+cpu_serial.cpp.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.s
+.PHONY : cpu_serial.cpp.s
+
 grid.o: grid.cpp.o
 
 .PHONY : grid.o
@@ -242,6 +269,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... game_of_life_lib"
+	@echo "... cpu_serial.o"
+	@echo "... cpu_serial.i"
+	@echo "... cpu_serial.s"
 	@echo "... grid.o"
 	@echo "... grid.i"
 	@echo "... grid.s"

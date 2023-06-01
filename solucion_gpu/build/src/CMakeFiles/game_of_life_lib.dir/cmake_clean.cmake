@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.o"
   "CMakeFiles/game_of_life_lib.dir/grid.cpp.o"
   "libgame_of_life_lib.a"
   "libgame_of_life_lib.pdb"

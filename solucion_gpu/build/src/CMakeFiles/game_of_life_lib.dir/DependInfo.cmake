@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/cpu_serial.cpp" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.o"
   "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/grid.cpp" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/src/CMakeFiles/game_of_life_lib.dir/grid.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
