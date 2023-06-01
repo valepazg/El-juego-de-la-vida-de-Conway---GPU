@@ -9,7 +9,6 @@
 
 using namespace std;
 
-#define N 10
 
 
 vector<vector<bool>> validate_matrix_str(string grid){
@@ -64,15 +63,24 @@ vector<vector<bool>> validate_matrix_str(string grid){
 }
  
 Grid::Grid(unsigned xin, unsigned yin){
-  this->matrix.resize(xin, vector<bool>(yin, false));
+  if (xin>0 && yin >0){
+  this->matrix.resize(xin, vector<bool>(yin, false));}
+  else {
+	throw std::invalid_argument("Size of grid, must be rows>0 and cols>0");
+  }
 };
 
 
 Grid::Grid(unsigned vin){
-  this->matrix.resize(vin, vector<bool>(vin, false));
+  if(vin>0){
+  this->matrix.resize(vin, vector<bool>(vin, false));}
+  else {
+	throw std::invalid_argument("Size of grid, must be vin>0");
+  }
 };
 
 Grid::Grid(){
+  unsigned N = 10;
   this->matrix.resize(N, vector<bool>(N, false));
 };
 

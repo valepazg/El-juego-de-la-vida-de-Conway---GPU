@@ -265,19 +265,6 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named testGrid
-
-# Build rule for target.
-testGrid: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testGrid
-.PHONY : testGrid
-
-# fast build rule for target.
-testGrid/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/testGrid.dir/build.make tests/CMakeFiles/testGrid.dir/build
-.PHONY : testGrid/fast
-
-#=============================================================================
 # Target rules for targets named ComwayGameOfLifeTests
 
 # Build rule for target.
@@ -337,7 +324,6 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... testGrid"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
