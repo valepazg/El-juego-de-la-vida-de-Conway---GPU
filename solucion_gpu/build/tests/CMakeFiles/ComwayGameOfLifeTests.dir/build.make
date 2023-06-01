@@ -89,35 +89,20 @@ tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.s"
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/tests/testGrid.cpp -o CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.s
 
-tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o: tests/CMakeFiles/ComwayGameOfLifeTests.dir/flags.make
-tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o: ../tests/testAutomata.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o"
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/tests/testAutomata.cpp
-
-tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.i"
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/tests/testAutomata.cpp > CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.i
-
-tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.s"
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/tests/testAutomata.cpp -o CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.s
-
 # Object files for target ComwayGameOfLifeTests
 ComwayGameOfLifeTests_OBJECTS = \
-"CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o" \
-"CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o"
+"CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o"
 
 # External object files for target ComwayGameOfLifeTests
 ComwayGameOfLifeTests_EXTERNAL_OBJECTS =
 
 tests/ComwayGameOfLifeTests: tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o
-tests/ComwayGameOfLifeTests: tests/CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o
 tests/ComwayGameOfLifeTests: tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make
 tests/ComwayGameOfLifeTests: lib/libgtest_main.a
 tests/ComwayGameOfLifeTests: src/libgame_of_life_lib.a
 tests/ComwayGameOfLifeTests: lib/libgtest.a
 tests/ComwayGameOfLifeTests: tests/CMakeFiles/ComwayGameOfLifeTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ComwayGameOfLifeTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ComwayGameOfLifeTests"
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ComwayGameOfLifeTests.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests && /usr/bin/cmake -D TEST_TARGET=ComwayGameOfLifeTests -D TEST_EXECUTABLE=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/ComwayGameOfLifeTests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=ComwayGameOfLifeTests_TESTS -D CTEST_FILE=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/tests/ComwayGameOfLifeTests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.18/Modules/GoogleTestAddTests.cmake
 

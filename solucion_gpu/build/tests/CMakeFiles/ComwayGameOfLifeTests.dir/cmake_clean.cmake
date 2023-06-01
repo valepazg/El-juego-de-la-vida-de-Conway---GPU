@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ComwayGameOfLifeTests.dir/testAutomata.cpp.o"
   "CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o"
   "ComwayGameOfLifeTests"
   "ComwayGameOfLifeTests.pdb"

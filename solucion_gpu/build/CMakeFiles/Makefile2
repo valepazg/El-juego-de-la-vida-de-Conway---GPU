@@ -215,7 +215,7 @@ tests/clean: tests/CMakeFiles/ComwayGameOfLifeTests.dir/clean
 CMakeFiles/game_of_life.dir/all: src/CMakeFiles/game_of_life_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=4,5 "Built target game_of_life"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=3,4 "Built target game_of_life"
 .PHONY : CMakeFiles/game_of_life.dir/all
 
 # Build rule for subdir invocation for target.
@@ -242,7 +242,7 @@ CMakeFiles/game_of_life.dir/clean:
 src/CMakeFiles/game_of_life_lib.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=6,7 "Built target game_of_life_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=5,6 "Built target game_of_life_lib"
 .PHONY : src/CMakeFiles/game_of_life_lib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -270,7 +270,7 @@ extern/googletest/googlemock/CMakeFiles/gmock_main.dir/all: extern/googletest/go
 extern/googletest/googlemock/CMakeFiles/gmock_main.dir/all: extern/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=10,11 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=9,10 "Built target gmock_main"
 .PHONY : extern/googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -297,7 +297,7 @@ extern/googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 extern/googletest/googlemock/CMakeFiles/gmock.dir/all: extern/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=8,9 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=7,8 "Built target gmock"
 .PHONY : extern/googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -324,7 +324,7 @@ extern/googletest/googlemock/CMakeFiles/gmock.dir/clean:
 extern/googletest/googletest/CMakeFiles/gtest_main.dir/all: extern/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest_main.dir/build.make extern/googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest_main.dir/build.make extern/googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=14,15 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
 .PHONY : extern/googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -351,7 +351,7 @@ extern/googletest/googletest/CMakeFiles/gtest_main.dir/clean:
 extern/googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest.dir/build.make extern/googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest.dir/build.make extern/googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=12,13 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=11,12 "Built target gtest"
 .PHONY : extern/googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -380,12 +380,12 @@ tests/CMakeFiles/ComwayGameOfLifeTests.dir/all: extern/googletest/googletest/CMa
 tests/CMakeFiles/ComwayGameOfLifeTests.dir/all: extern/googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=1,2,3 "Built target ComwayGameOfLifeTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles --progress-num=1,2 "Built target ComwayGameOfLifeTests"
 .PHONY : tests/CMakeFiles/ComwayGameOfLifeTests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/ComwayGameOfLifeTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
