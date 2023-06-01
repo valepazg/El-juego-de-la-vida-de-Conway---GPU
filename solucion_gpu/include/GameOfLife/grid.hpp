@@ -47,4 +47,6 @@ public:
   int getCols() const;
 
 };
+
+vector<vector<bool>> validate_matrix_str(string grid);
 #endif

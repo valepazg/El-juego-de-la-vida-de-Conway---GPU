@@ -8,10 +8,11 @@
 
 
 using namespace std;
-
+namespace fs = std::filesystem;
 
 
 vector<vector<bool>> validate_matrix_str(string grid){
+
    vector<vector<bool>> matrix;
 
    std::string line;
@@ -26,11 +27,18 @@ vector<vector<bool>> validate_matrix_str(string grid){
    int column=0;
    std::istringstream s_grid(grid);
    int count_chars = 0;
+
+
    while (std::getline(s_grid, line, '\n')){
+
+	 //std::cerr << line << std::endl;
+
 	 vector<string> newline;
 	 int count_chars = 0;
 	 std::istringstream s_line(line);
 	 while (std::getline(s_line, symbol, ',')) {
+	   //std::cerr << symbol << std::endl;
+
 	   if (symbol==sym_x || symbol==sym_o) {
 		 count_chars++;
 		 newline.push_back(symbol);
@@ -39,9 +47,19 @@ vector<vector<bool>> validate_matrix_str(string grid){
 	   }
 	   column++;
 	 }
+ 	 //std::cerr << "newline ok" << std::endl;
+
 	 matrix_str.push_back(newline);
-	 if (counter.back() == count_chars){ 
-	   counter.push_back(count_chars);
+
+	 //std::cerr << "matrix pushback" << std::endl;
+	 if (counter.size() == 0) {
+	   //std::cerr << "count-chars" << count_chars << std::endl;
+	   counter.push_back((int)count_chars);
+	 }
+	 else if (counter.back() == count_chars){ 
+	   //std::cerr << "count-chars" << count_chars << std::endl;
+ 
+	   counter.push_back((int)count_chars);
 	 } else {
 	   throw std::invalid_argument("Line must be same number of symbols");
 	 }
@@ -50,12 +68,14 @@ vector<vector<bool>> validate_matrix_str(string grid){
 	 column=0;
 	}
 	/**/
-
-   int columns = counter.back();;
-
+   
+   int columns = counter.back();
+   matrix.resize(row, vector<bool>(columns, false));
+   
    for (int i=0;i<row;i++) {
-	 for (int j=0;j<column;j++) {
-	   matrix[i][j] = matrix_str[i][j]==sym_x;
+	 for (int j=0;j<columns;j++) {
+	   int result =  matrix_str[i][j]==sym_x;
+	   matrix[i][j] = result;
 	 }
    }
 
@@ -89,6 +109,29 @@ Grid::Grid(string grid){
    vector<vector<bool>> matrix;
    matrix = validate_matrix_str(grid);
    load_grid(matrix);
+};
+
+
+Grid::Grid(std::filesystem::path path) {
+  if (std::filesystem::is_regular_file(path)){
+	  std::ifstream file(path, std::ios::in | std::ios::binary);
+	  if (!file.is_open()){
+			throw std::invalid_argument("File cannot be opened");
+		  };
+	  // Read contents
+	  std::string grid{
+		std::istreambuf_iterator<char>(file), 
+		std::istreambuf_iterator<char>()
+	  };
+	  // Close the file
+	  file.close();
+	  vector<vector<bool>> matrix;
+	  matrix = validate_matrix_str(grid);
+	  load_grid(matrix);
+  } else {
+	throw std::invalid_argument("File path must be a filename path and be readabale");
+  }
+
 };
 
 
@@ -148,7 +191,8 @@ std::ostream& operator<<(
   
   for (const auto& row: grid.matrix) {
 	for (const auto& value:row) {
-	  os << value << " ";
+	  string symbol = value?"X":"O";
+	  os << symbol << " ";
 	}
 	os << std::endl;
   }
@@ -174,3 +218,5 @@ int Grid::getCols() const{
 void Grid::load_grid(vector<vector<bool>> &matrix) {
   this->matrix=matrix;
 }
+
+

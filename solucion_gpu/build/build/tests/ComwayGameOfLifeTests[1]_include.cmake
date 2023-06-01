@@ -1,5 +1,0 @@
-if(EXISTS "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/tests/ComwayGameOfLifeTests[1]_tests.cmake")
-  include("/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/build/build/tests/ComwayGameOfLifeTests[1]_tests.cmake")
-else()
-  add_test(ComwayGameOfLifeTests_NOT_BUILT ComwayGameOfLifeTests_NOT_BUILT)
-endif()
