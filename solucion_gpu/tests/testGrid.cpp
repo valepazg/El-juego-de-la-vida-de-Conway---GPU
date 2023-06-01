@@ -120,3 +120,12 @@ TEST(GridReadFromFileFail, TestFail_5) {
   fs::path matrix_path("./tests/matrix_not_ok.txt");
   EXPECT_THROW(Grid grid(matrix_path), std::exception);
 }
+
+
+// check
+TEST(GridCheckNext, BassicAssertions){
+  string matrix_str =  "X,O,O\nX,X,O\nO,O,X";
+  Grid grid(matrix_str);
+  // size is 3x3
+
+}
