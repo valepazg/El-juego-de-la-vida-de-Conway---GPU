@@ -38,6 +38,8 @@ public:
   bool check_next(unsigned xin, unsigned yin);
   // load grid
   void load_grid(vector<vector<bool>> &matrix);
+  void gen_random(int seed);
+
   // load grid from string
   // generate next grid
   vector<vector<bool>> next();
@@ -49,6 +51,12 @@ public:
   bool getValue(int i, int j);
 
   bool operator==(const Grid& other) const;
+
+  bool has_life() const;
+
+  int alive() const;
+  int dead() const;
+
 };
 
 vector<vector<bool>> validate_matrix_str(string grid);

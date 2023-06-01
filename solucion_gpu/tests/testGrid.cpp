@@ -125,7 +125,7 @@ TEST(GridReadFromFileFail, TestFail_5) {
 // check
 TEST(GridCheckNext, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,O\nO,X,O";
+  string next = "O,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);
@@ -168,7 +168,7 @@ TEST(GridCheckGetValue, BassicAssertions){
 // generate next grid and compare
 TEST(GridCheckNextUsingGrid, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,O\nO,X,O";
+  string next = "O,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);
@@ -200,7 +200,7 @@ TEST(GridCheckNextUsingGrid, BassicAssertions){
 // generate next grid and compare with ==
 TEST(GridCheckCompareEq, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,O\nO,X,O";
+  string next = "O,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);
@@ -222,5 +222,41 @@ TEST(GridCheckCompareEq, BassicAssertions){
   // size is 3x3
   EXPECT_EQ(grid_test, grid_next);
 }
+
+
+
+
+// generate random grid
+TEST(GridGenRandomCheck, BassicAssertions){
+  Grid grid;
+  int seed = 500;
+  grid.gen_random(seed);
+
+  std::cerr << grid << std::endl;
+
+  // size is 3x3
+  EXPECT_EQ(grid.has_life(), true);
+}
+
+
+
+// test alive cells
+TEST(GridGetAlive, BassicAssertions){
+  fs::path matrix_path("./tests/matrix_ok.txt");
+  Grid grid(matrix_path);
+  // size is 3x3
+  EXPECT_EQ(grid.alive(), 18);
+}
+
+
+
+// generate random grid
+TEST(GridGetDead, BassicAssertions){
+  fs::path matrix_path("./tests/matrix_ok.txt");
+  Grid grid(matrix_path);
+  // size is 3x3
+  EXPECT_EQ(grid.dead(), 22);
+}
+
 
 

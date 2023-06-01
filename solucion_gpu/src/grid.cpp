@@ -5,7 +5,8 @@
 #include <fstream>
 #include <sstream> //std::stringstream
 #include "GameOfLife/grid.hpp"
-
+#include <random>
+#include <functional>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -165,12 +166,16 @@ bool Grid::check_next(unsigned xin, unsigned yin){
 		upflag = true;
 		up = xin - 1;
     	//std::cerr << "up " << up << std::endl;
-
-	  }
+	  } else if (xin==0){
+		// mundo interconecado por los bordes
+		up = rows-1;
+	  } 
       //std::cerr << "up " << up << std::endl;
 	 
 	  unsigned down = xin + 1;
-	  
+	  if (down==rows) {
+		down=0;
+	  }
 
 	  unsigned left = 0;
 	  bool leftflag = false;
@@ -178,10 +183,15 @@ bool Grid::check_next(unsigned xin, unsigned yin){
 	  if (yin>0){
 		leftflag=true;
 		left = yin - 1;
+	  } else if (yin==0){
+		// mundo interconecado por los bordes
+		left = cols -1;
 	  }
 
 	  unsigned right = yin + 1;
-
+	  if (right==cols) {
+		right=0;
+	  }
 	  bool cell =  this->matrix[xin][yin];
 
 	  // std::cerr << "X ->" <<xin << " :Y ->"<< yin << std::endl;
@@ -302,3 +312,57 @@ bool Grid::operator==(const Grid& other) const {
 	}
 	return true;
   }
+
+
+void Grid::gen_random(int seed){
+  srand(seed);
+  auto gen = std::bind(std::uniform_int_distribution<>(0,1),std::default_random_engine());
+
+	for (int i=0;i<getRows(); i++) {
+	for (int j=0;j<getCols(); j++) {
+	  bool random = gen();
+	  this->matrix[i][j] = random;
+	  }
+	}
+
+}
+
+
+bool Grid::has_life() const{
+	for (int i=0;i<getRows(); i++) {
+	for (int j=0;j<getCols(); j++) {
+	  bool val = this->matrix[i][j];
+	  if (val) {
+		return true;
+	  }
+	  }
+	}
+	return false;
+}
+
+
+int Grid::alive() const{
+  int alive = 0;
+	for (int i=0;i<getRows(); i++) {
+	for (int j=0;j<getCols(); j++) {
+	  bool val = this->matrix[i][j];
+	  if (val) {
+		alive++;
+	  }
+	  }
+	}
+	return alive;
+}
+
+int Grid::dead() const{
+  int dead = 0;
+	for (int i=0;i<getRows(); i++) {
+	for (int j=0;j<getCols(); j++) {
+	  bool val = this->matrix[i][j];
+	  if (!val) {
+		dead++;
+	  }
+	  }
+	}
+	return dead;
+}

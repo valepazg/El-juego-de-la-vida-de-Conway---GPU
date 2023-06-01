@@ -35,4 +35,8 @@ sstream
 -
 GameOfLife/grid.hpp
 /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/GameOfLife/grid.hpp
+random
+-
+functional
+-
 
