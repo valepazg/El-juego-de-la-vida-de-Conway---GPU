@@ -20,7 +20,9 @@ iteración:
 */
 class Grid{
 private:
-  vector<vector<bool>> matrix;
+  bool* matrix;
+  int rows;
+  int cols;
 public:
   // constructor
   Grid(unsigned xin, unsigned yin);
@@ -44,19 +46,19 @@ public:
   // generate next grid
   vector<vector<bool>> next();
   // show grid
-  friend std::ostream& operator<<(std::ostream &os, Grid const &grid);
+  friend std::ostream& operator<<(std::ostream &os, Grid &grid);
 
-  int getRows() const;
-  int getCols() const;
+  int getRows();
+  int getCols();
   bool getValue(int i, int j);
 
   bool operator==(const Grid& other) const;
 
-  bool has_life() const;
+  bool has_life() ;
 
-  int alive() const;
-  int dead() const;
-
+  int alive() ;
+  int dead() ;
+  ~Grid();
 };
 
 vector<vector<bool>> validate_matrix_str(string grid);

@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/game_of_life.dir/main.cpp.o -o game_of_life  src/libgame_of_life_lib.a 
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/game_of_life.dir/main.cpp.o -o game_of_life  src/libgame_of_life_lib.a 

@@ -11,8 +11,10 @@ assertion de googletest
 // crea grid de tamaño 1
 TEST(GridTest_0, BasicAssertions) {
   Grid grid(1);
+
   int rows = grid.getRows();
   int cols = grid.getCols();
+
   EXPECT_EQ(rows,1);
   EXPECT_EQ(cols,1);
 }
@@ -20,7 +22,10 @@ TEST(GridTest_0, BasicAssertions) {
 
 // crea grid de tamaño 1
 TEST(GridTest_1, BasicAssertions) {
+
   Grid grid(10000);
+
+
   int rows = grid.getRows();
   int cols = grid.getCols();
   EXPECT_EQ(rows,10000);
@@ -57,6 +62,7 @@ EXPECT_THROW(
 
 TEST(ValidateMatrixStr, BasicAssertions) {
   string matrix_str =  "X,O,O,X,O\nX,X,O,O,X\nO,O,X,X,O";
+
   vector<vector<bool>> matrix = validate_matrix_str(matrix_str);
   int rows = matrix.size();
   EXPECT_EQ(rows,3);
@@ -64,17 +70,22 @@ TEST(ValidateMatrixStr, BasicAssertions) {
 
 // string to matrix
 TEST(GridTest_5, BasicAssertions) {
+
   string matrix_str =  "X,O,O,X,O\nX,X,O,O,X\nO,O,X,X,O";
+
   Grid grid(matrix_str);
   int rows = grid.getRows();
   int cols = grid.getCols();
+
   EXPECT_EQ(rows,3);
   EXPECT_EQ(cols,5);
+  
 }
 
 
 // string to matrix bigger matrix
 TEST(GridTest_6, BasicAssertions) {
+ 
   string matrix_str =  "X,O,O,X,O,X,O,O,X,O\nX,X,O,O,X,X,O,O,X,O\nO,O,X,X,O,X,O,X,X,O\nO,O,X,X,O,X,X,O,O,O";
   Grid grid(matrix_str);
   int rows = grid.getRows();
@@ -125,7 +136,7 @@ TEST(GridReadFromFileFail, TestFail_5) {
 // check
 TEST(GridCheckNext, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,X\nX,X,O";
+  string next = "X,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);
@@ -168,7 +179,7 @@ TEST(GridCheckGetValue, BassicAssertions){
 // generate next grid and compare
 TEST(GridCheckNextUsingGrid, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,X\nX,X,O";
+  string next = "X,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);
@@ -200,7 +211,7 @@ TEST(GridCheckNextUsingGrid, BassicAssertions){
 // generate next grid and compare with ==
 TEST(GridCheckCompareEq, BassicAssertions){
   string matrix_str = "X,O,O\nX,X,O\nX,O,X";
-  string next = "O,O,O\nX,O,X\nX,X,O";
+  string next = "X,O,O\nX,O,X\nX,X,O";
   vector<vector<bool>> matrix_next = validate_matrix_str(next);
 
   Grid grid(matrix_str);

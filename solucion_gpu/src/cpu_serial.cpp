@@ -10,7 +10,7 @@
 #include <string>
 
 
-int serial_simulation() {
+int serial_simulation(string filename) {
 
 	size_t m_worldWidth;
 	size_t m_worldHeight;
@@ -22,7 +22,7 @@ int serial_simulation() {
     using std::chrono::milliseconds;
 
     // abrir un archivo csv para guardar los datos
-    ofstream file("cpu_serial.csv");
+    ofstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Failed to open file\n";
         return 1;
@@ -33,15 +33,17 @@ int serial_simulation() {
 
 	const int SEED = 500;
 	
+    srand(SEED);
 
-	for (int i=5; i<32;i++){
+	for (int i=5; i<14;i++){
 	/*
 	  Generate grid
 	 */
-        cout << "Grilla de tamano: 2^" << i << "x 2^" << i << endl;
-        srand(SEED);
-        m_worldWidth = pow(2,i);
-        m_worldHeight = pow(2,i);
+
+		cout << i <<" Grilla de tamano: 2^" << i << "x 2^" << i << endl;
+
+		m_worldWidth = pow(2,i);
+		m_worldHeight = pow(2,i);
         m_dataLength = m_worldWidth * m_worldHeight;
 		Grid grid(m_worldWidth, m_worldHeight);
 		grid.gen_random(SEED);
@@ -49,7 +51,7 @@ int serial_simulation() {
 	/*
 	  Compute iteration on diferent sizes
 	 */	  
-		for (int k=0;k<10; k++) {
+		for (int k=0;k<30; k++) {
             auto start_time = high_resolution_clock::now();
             Grid grid(grid);
             auto end_time = high_resolution_clock::now();

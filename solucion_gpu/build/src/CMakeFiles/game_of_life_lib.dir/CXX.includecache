@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/GameOfLife/cpu_serial.hpp
-
 ../include/GameOfLife/grid.hpp
 iostream
 -
@@ -22,25 +20,23 @@ vector
 filesystem
 -
 
-/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/cpu_serial.cpp
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/grid.cpp
 iostream
 -
-GameOfLife/grid.hpp
-/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/GameOfLife/grid.hpp
-GameOfLife/cpu_serial.hpp
-/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/GameOfLife/cpu_serial.hpp
-chrono
+string
 -
-stdlib.h
--
-cstdlib
--
-time.h
+cassert
 -
 cmath
 -
 fstream
 -
-string
+sstream
+-
+GameOfLife/grid.hpp
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/solucion_gpu/src/GameOfLife/grid.hpp
+random
+-
+functional
 -
 

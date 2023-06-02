@@ -83,9 +83,28 @@ vector<vector<bool>> validate_matrix_str(string grid){
    return matrix;
 }
  
+
+Grid::~Grid(){
+  std::cerr << "DELETE START" << std::endl;
+
+  // for (int i=0;i<rows*cols; i++) {
+  // 	std::cerr << matrix[i] << std::endl;
+
+  // 	if (matrix[i]) delete &matrix[i];
+  // }
+
+  std::cerr << "DELETE END" << std::endl;
+
+  delete[] matrix;
+}
+
 Grid::Grid(unsigned xin, unsigned yin){
   if (xin>0 && yin >0){
-  this->matrix.resize(xin, vector<bool>(yin, false));}
+	this->rows = xin;
+	this->cols = yin;
+	this->matrix =  new bool[rows*cols];
+	std::fill_n(matrix, rows * cols, false);
+  }
   else {
 	throw std::invalid_argument("Size of grid, must be rows>0 and cols>0");
   }
@@ -94,15 +113,27 @@ Grid::Grid(unsigned xin, unsigned yin){
 
 Grid::Grid(unsigned vin){
   if(vin>0){
-  this->matrix.resize(vin, vector<bool>(vin, false));}
+	this->rows = vin;
+	this->cols = vin;
+	this->matrix =  new bool[rows*cols];
+
+	std::cerr << "GRID Creation" << rows << " " << cols <<std::endl;
+
+	std::fill_n(matrix, rows * cols, false);
+	std::cerr << "GRID Creation OK" <<std::endl;
+
+	}
   else {
 	throw std::invalid_argument("Size of grid, must be vin>0");
   }
 };
 
 Grid::Grid(){
-  unsigned N = 10;
-  this->matrix.resize(N, vector<bool>(N, false));
+	this->rows = 10;
+	this->cols = 10;
+	this->matrix =  new bool[rows*cols];
+	std::fill_n(matrix, rows * cols, false);
+
 };
 
 
@@ -110,18 +141,24 @@ Grid::Grid(string grid){
    vector<vector<bool>> matrix;
    matrix = validate_matrix_str(grid);
    load_grid(matrix);
+   std::cerr << "Matrix loaded from str ok" << std::endl;
+
 };
 
 
 Grid::Grid(Grid &grid){
-  int rows = grid.getRows();
-  int cols = grid.getCols();
+  rows = grid.getRows();
+  cols = grid.getCols();
 
-   std::cerr << "Creating grid next" << rows<< " "<<cols<<std::endl;
-   this->matrix.resize(rows, vector<bool>(cols, false));
+  std::cerr << "Loading matrix -> "<<grid.getRows() << " : "<<grid.getCols() << std::endl;
+
+  this->matrix =  new bool[rows*cols];
+
+  std::fill_n(matrix, rows * cols, false);
+ 
    for (int i = 0; i < rows; i++)  {
 	 for ( int j = 0; j < cols; j++) {
-	   this->matrix[i][j] = grid.check_next(i,j);
+	   this->matrix[i * cols + j] = grid.check_next(i,j);
 	 }
    }
 };
@@ -151,24 +188,17 @@ Grid::Grid(std::filesystem::path path) {
 
 
 bool Grid::check_next(unsigned xin, unsigned yin){
-  int rows = getRows();
-  int cols = getCols();
 
   if (xin<rows && yin<cols) {
 	  unsigned check = 0;
 	  unsigned up = 0;
-	  bool upflag = false;
 	  //std::cerr << "================" << std::endl;
 
 	  //std::cerr << "xin " << xin << std::endl;
-
+	  up = rows-1;
 	  if (xin > 0){
-		upflag = true;
 		up = xin - 1;
     	//std::cerr << "up " << up << std::endl;
-	  } else if (xin==0){
-		// mundo interconecado por los bordes
-		up = rows-1;
 	  } 
       //std::cerr << "up " << up << std::endl;
 	 
@@ -178,22 +208,24 @@ bool Grid::check_next(unsigned xin, unsigned yin){
 	  }
 
 	  unsigned left = 0;
-	  bool leftflag = false;
-
+	  left = cols -1;
 	  if (yin>0){
-		leftflag=true;
 		left = yin - 1;
-	  } else if (yin==0){
-		// mundo interconecado por los bordes
-		left = cols -1;
-	  }
+	  } 
 
 	  unsigned right = yin + 1;
 	  if (right==cols) {
 		right=0;
 	  }
-	  bool cell =  this->matrix[xin][yin];
 
+	  bool cell =  getValue(xin,yin);
+	  // std::cerr << "Rows * Col ->" << rows*cols <<std::endl;
+
+	  // if (rows*cols>=3){
+	  // 	  bool cell_v = matrix[3];
+	  // 	  std::cerr << "V CELL ->" << cell <<std::endl;
+	  // 	  std::cerr << "OP ->" << xin*cols+yin <<std::endl;
+	  // 	}
 	  // std::cerr << "X ->" <<xin << " :Y ->"<< yin << std::endl;
 	  // std::cerr << "up " << up << std::endl;
 	  // std::cerr << "down " << down << std::endl;
@@ -201,42 +233,64 @@ bool Grid::check_next(unsigned xin, unsigned yin){
 	  // std::cerr << "right " << right << std::endl;
 	  
 
-	  if (up>=0 &&upflag){
-		if (this->matrix[up][yin]) {
-		  //std::cerr << "up" << std::endl;
+	  // if (up>=0 &&upflag){
+	  // 	if (getValue(up,yin)) {
+	  // 	  //std::cerr << "up" << std::endl;
 
-		  check++;
-		}
-	  }
-	  if (down < rows) {
-		if (this->matrix[down][yin]) {
-		  //std::cerr << "down" << std::endl;
-		  check++;
-		}
-	  }
+	  // 	  check++;
+	  // 	}
+	  // }
+	  // if (down < rows) {
+	  // 	if (getValue(down,yin)) {
+	  // 	  //std::cerr << "down" << std::endl;
+	  // 	  check++;
+	  // 	}
+	  // }
 
-	  if (left>=0 && leftflag){
-		if (this->matrix[xin][left]) {
-		  //std::cerr << "left" << std::endl;
-		  check++;
-		}
-	  }
-	  if (right < cols) {
-		if (this->matrix[xin][right]) {
-		  //std::cerr << "right" << std::endl;
-		  check++;
-		}
-	  }
+	  // if (left>=0 && leftflag){
+	  // 	if (getValue(xin,left)) {
+	  // 	  //std::cerr << "left" << std::endl;
+	  // 	  check++;
+	  // 	}
+	  // }
+	  // if (right < cols) {
+	  // 	if (getValue(xin,left)) {
+	  // 	  //std::cerr << "right" << std::endl;
+	  // 	  check++;
+	  // 	}
+	  // }
+	  int up_val = getValue(up,yin);
+	  int down_val = getValue(down,yin);
+	  int left_val = getValue(xin,left);
+	  int right_val = getValue(xin,right);
+
+	  // std::cerr << "X ->" << xin <<" | Y ->"<<yin <<std::endl;
+	  // std::cerr << "CELL ->" << cell <<std::endl;
+
+	  // std::cerr << "Up " << up_val <<std::endl;
+	  // std::cerr << "Down " << down_val <<std::endl;
+	  // std::cerr << "Left " << left_val <<std::endl;
+	  // std::cerr << "Right " << right_val <<std::endl;
+
+	  check = up_val + down_val + left_val + right_val;
+
+	  // std::cerr << "CHECK ->" << check <<std::endl;
 	  
 	  // std::cerr << "X ->" <<xin << " :Y ->"<< yin << std::endl;
 	  // std::cerr << "cell ->" <<cell<< std::endl;
 	  // std::cerr << "check ->" <<check<< std::endl;
 
 	  if (cell==false && check==3) {
+		//std::cerr << "VAL ->" << 1 <<std::endl;
+
 		return true;
 	  } else if (cell==true && (check==2 || check==3)) {
+		//std::cerr << "VAL ->" << 1 <<std::endl;
+
 		return true;
 	  } else {
+		//std::cerr << "VAL ->" << 0 <<std::endl;
+
 		return false;
 	  }
   } else {
@@ -252,37 +306,37 @@ show the matrix grid
 
 std::ostream& operator<<(
 						std::ostream& os, 
-						const Grid& grid) {
-  
-  for (const auto& row: grid.matrix) {
-	for (const auto& value:row) {
-	  string symbol = value?"X":"O";
-	  os << symbol << " ";
-	}
-	os << std::endl;
-  }
+						Grid& grid) {
+
+   std::cerr << "Loading matrix -> "<<grid.getRows() << " : "<<grid.getCols() << std::endl;
+
+   for (int i = 0; i < grid.getRows(); i++)  {
+	 for ( int j = 0; j < grid.getCols(); j++) {
+	   int value = grid.getValue(i,j);
+	   string symbol = value?"X":"O";
+	   os << symbol << " ";
+	 }
+	 os<<endl;
+   } 
 
  return os;
 }
 
 
 
-int Grid::getRows() const{
-  return this->matrix.size();
+int Grid::getRows(){
+  return this->rows;
 };
 
 
-int Grid::getCols() const{
-  if (this->matrix.size()>0) {
-	return this->matrix[0].size();
-  }
-  return 0;
+int Grid::getCols(){
+  return this->cols;
 };
 
 
 bool Grid::getValue(int i, int j){
   if (i<getRows() && j<getCols()) {
-	return this->matrix[i][j];
+	return this->matrix[i*cols+j];
   } else {
 	throw std::invalid_argument("Indexes must be low than number of rows and cols");
   }
@@ -291,24 +345,32 @@ bool Grid::getValue(int i, int j){
 
 
 void Grid::load_grid(vector<vector<bool>> &matrix) {
-  this->matrix=matrix;
+    this->rows = matrix.size();
+	this->cols = matrix[0].size();
+	this->matrix =  new bool[rows*cols];
+	std::cerr << "Loading matrix -> "<<rows << " : "<<cols << std::endl;
+
+	for (int i=0;i<rows; i++) {
+	for (int j=0;j<cols; j++) {
+	  this->matrix[i*cols+j]=matrix[i][j];
+	}
+	}
+	std::cerr << "matrix OK -> "<<rows << " : "<<cols << std::endl;
+
 }
 
 
 
-
-bool Grid::operator==(const Grid& other) const {
-	if (getRows() != other.getRows() || getCols() != other.getCols()){
+bool Grid::operator==(const Grid& other) const{
+	if (rows != other.rows || cols != other.cols){
 	  return false;
 	}
 
-	for (int i=0;i<getRows(); i++) {
-	for (int j=0;j<getCols(); j++) {
-	  int check = other.matrix[i][j];
-	  if(matrix[i][j]!=check) {
+	for (int i=0;i<rows*cols; i++) {
+	  int check = other.matrix[i];
+	  if(matrix[i]!=check) {
 		return false;
 	  }
-	}
 	}
 	return true;
   }
@@ -321,17 +383,17 @@ void Grid::gen_random(int seed){
 	for (int i=0;i<getRows(); i++) {
 	for (int j=0;j<getCols(); j++) {
 	  bool random = gen();
-	  this->matrix[i][j] = random;
+	  this->matrix[i*cols + j] = random;
 	  }
 	}
 
 }
 
 
-bool Grid::has_life() const{
+bool Grid::has_life(){
 	for (int i=0;i<getRows(); i++) {
 	for (int j=0;j<getCols(); j++) {
-	  bool val = this->matrix[i][j];
+	  bool val = getValue(i,j);
 	  if (val) {
 		return true;
 	  }
@@ -341,11 +403,11 @@ bool Grid::has_life() const{
 }
 
 
-int Grid::alive() const{
+int Grid::alive() {
   int alive = 0;
 	for (int i=0;i<getRows(); i++) {
 	for (int j=0;j<getCols(); j++) {
-	  bool val = this->matrix[i][j];
+	  bool val = getValue(i,j);
 	  if (val) {
 		alive++;
 	  }
@@ -354,11 +416,11 @@ int Grid::alive() const{
 	return alive;
 }
 
-int Grid::dead() const{
+int Grid::dead(){
   int dead = 0;
 	for (int i=0;i<getRows(); i++) {
 	for (int j=0;j<getCols(); j++) {
-	  bool val = this->matrix[i][j];
+	  bool val = getValue(i,j);
 	  if (!val) {
 		dead++;
 	  }
