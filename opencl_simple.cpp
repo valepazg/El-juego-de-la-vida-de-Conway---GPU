@@ -29,6 +29,9 @@ using std::chrono::duration_cast;
 using std::chrono::duration;
 using std::chrono::milliseconds;
 
+
+
+
 int main(void){
 
     // abrir un archivo csv para guardar los datos

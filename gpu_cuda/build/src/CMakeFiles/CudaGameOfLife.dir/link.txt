@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCudaGameOfLife.a CMakeFiles/CudaGameOfLife.dir/gpu_simple.cu.o CMakeFiles/CudaGameOfLife.dir/gpu_mode1.cu.o CMakeFiles/CudaGameOfLife.dir/gpu_mode2.cu.o
+/usr/bin/ranlib libCudaGameOfLife.a

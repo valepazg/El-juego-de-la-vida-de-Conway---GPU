@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/grid.cpp
+CudaGameoflife/grid.hpp
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/CudaGameoflife/grid.hpp
+
