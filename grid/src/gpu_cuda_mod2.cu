@@ -19,6 +19,7 @@ namespace fs = std::filesystem;
 /*
 Define kernel
 */
+
 __device__ bool getValue(const bool *matrix, int i, int j, int cols){
 	return matrix[i*cols+j];
 }

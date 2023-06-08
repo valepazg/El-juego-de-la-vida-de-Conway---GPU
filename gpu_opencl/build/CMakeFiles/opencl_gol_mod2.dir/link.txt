@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/opencl_gol_mod2.dir/src/opencl_mod2.cpp.o -o opencl_gol_mod2   -L/usr/lib/x86_64-linux-gnu/libOpenCL.so 

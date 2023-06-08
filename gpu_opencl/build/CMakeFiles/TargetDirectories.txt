@@ -1,0 +1,14 @@
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/rebuild_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/edit_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/test.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/opencl_gol_mod2.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/opencl_gol_mod1.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/opencl_gol_simple.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/CMakeFiles/gol.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/src/CMakeFiles/rebuild_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/src/CMakeFiles/edit_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/src/CMakeFiles/test.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/src/CMakeFiles/game_of_life_lib.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/include/CMakeFiles/rebuild_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/include/CMakeFiles/edit_cache.dir
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_opencl/build/include/CMakeFiles/test.dir
