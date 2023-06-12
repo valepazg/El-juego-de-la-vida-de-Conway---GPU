@@ -187,30 +187,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cuda_gol_mode1
+# Target rules for targets named cuda_gol_mod1
 
 # Build rule for target.
-cuda_gol_mode1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda_gol_mode1
-.PHONY : cuda_gol_mode1
+cuda_gol_mod1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda_gol_mod1
+.PHONY : cuda_gol_mod1
 
 # fast build rule for target.
-cuda_gol_mode1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/build
-.PHONY : cuda_gol_mode1/fast
-
-#=============================================================================
-# Target rules for targets named cuda_gol__mode2
-
-# Build rule for target.
-cuda_gol__mode2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda_gol__mode2
-.PHONY : cuda_gol__mode2
-
-# fast build rule for target.
-cuda_gol__mode2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/build
-.PHONY : cuda_gol__mode2/fast
+cuda_gol_mod1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod1.dir/build.make CMakeFiles/cuda_gol_mod1.dir/build
+.PHONY : cuda_gol_mod1/fast
 
 #=============================================================================
 # Target rules for targets named cuda_gol_simple
@@ -226,30 +213,17 @@ cuda_gol_simple/fast:
 .PHONY : cuda_gol_simple/fast
 
 #=============================================================================
-# Target rules for targets named grid
+# Target rules for targets named cuda_gol_mod2
 
 # Build rule for target.
-grid: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 grid
-.PHONY : grid
+cuda_gol_mod2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cuda_gol_mod2
+.PHONY : cuda_gol_mod2
 
 # fast build rule for target.
-grid/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/build
-.PHONY : grid/fast
-
-#=============================================================================
-# Target rules for targets named CudaGameOfLife
-
-# Build rule for target.
-CudaGameOfLife: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CudaGameOfLife
-.PHONY : CudaGameOfLife
-
-# fast build rule for target.
-CudaGameOfLife/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/build
-.PHONY : CudaGameOfLife/fast
+cuda_gol_mod2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod2.dir/build.make CMakeFiles/cuda_gol_mod2.dir/build
+.PHONY : cuda_gol_mod2/fast
 
 #=============================================================================
 # Target rules for targets named game_of_life
@@ -261,7 +235,7 @@ game_of_life: cmake_check_build_system
 
 # fast build rule for target.
 game_of_life/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/CMakeFiles/game_of_life.dir/build.make extern/grid/CMakeFiles/game_of_life.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/build
 .PHONY : game_of_life/fast
 
 #=============================================================================
@@ -274,7 +248,7 @@ game_of_life_lib: cmake_check_build_system
 
 # fast build rule for target.
 game_of_life_lib/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/src/CMakeFiles/game_of_life_lib.dir/build.make extern/grid/src/CMakeFiles/game_of_life_lib.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/build
 .PHONY : game_of_life_lib/fast
 
 #=============================================================================
@@ -287,7 +261,7 @@ gmock_main: cmake_check_build_system
 
 # fast build rule for target.
 gmock_main/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make extern/grid/extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 #=============================================================================
@@ -300,7 +274,7 @@ gmock: cmake_check_build_system
 
 # fast build rule for target.
 gmock/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/extern/googletest/googlemock/CMakeFiles/gmock.dir/build.make extern/grid/extern/googletest/googlemock/CMakeFiles/gmock.dir/build
+	$(MAKE) $(MAKESILENT) -f extern/googletest/googlemock/CMakeFiles/gmock.dir/build.make extern/googletest/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 #=============================================================================
@@ -313,7 +287,7 @@ gtest_main: cmake_check_build_system
 
 # fast build rule for target.
 gtest_main/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/extern/googletest/googletest/CMakeFiles/gtest_main.dir/build.make extern/grid/extern/googletest/googletest/CMakeFiles/gtest_main.dir/build
+	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest_main.dir/build.make extern/googletest/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
 #=============================================================================
@@ -326,7 +300,7 @@ gtest: cmake_check_build_system
 
 # fast build rule for target.
 gtest/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/extern/googletest/googletest/CMakeFiles/gtest.dir/build.make extern/grid/extern/googletest/googletest/CMakeFiles/gtest.dir/build
+	$(MAKE) $(MAKESILENT) -f extern/googletest/googletest/CMakeFiles/gtest.dir/build.make extern/googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
 #=============================================================================
@@ -339,197 +313,116 @@ ComwayGameOfLifeTests: cmake_check_build_system
 
 # fast build rule for target.
 ComwayGameOfLifeTests/fast:
-	$(MAKE) $(MAKESILENT) -f extern/grid/tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make extern/grid/tests/CMakeFiles/ComwayGameOfLifeTests.dir/build
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/build
 .PHONY : ComwayGameOfLifeTests/fast
 
-src/gpu_mode1.o: src/gpu_mode1.cu.o
+main.o: main.cpp.o
 
-.PHONY : src/gpu_mode1.o
-
-# target to build an object file
-src/gpu_mode1.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/gpu_mode1.cu.o
-.PHONY : src/gpu_mode1.cu.o
-
-src/gpu_mode1.i: src/gpu_mode1.cu.i
-
-.PHONY : src/gpu_mode1.i
-
-# target to preprocess a source file
-src/gpu_mode1.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/gpu_mode1.cu.i
-.PHONY : src/gpu_mode1.cu.i
-
-src/gpu_mode1.s: src/gpu_mode1.cu.s
-
-.PHONY : src/gpu_mode1.s
-
-# target to generate assembly for a file
-src/gpu_mode1.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/gpu_mode1.cu.s
-.PHONY : src/gpu_mode1.cu.s
-
-src/gpu_mode2.o: src/gpu_mode2.cu.o
-
-.PHONY : src/gpu_mode2.o
+.PHONY : main.o
 
 # target to build an object file
-src/gpu_mode2.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/gpu_mode2.cu.o
-.PHONY : src/gpu_mode2.cu.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-src/gpu_mode2.i: src/gpu_mode2.cu.i
+main.i: main.cpp.i
 
-.PHONY : src/gpu_mode2.i
+.PHONY : main.i
 
 # target to preprocess a source file
-src/gpu_mode2.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/gpu_mode2.cu.i
-.PHONY : src/gpu_mode2.cu.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-src/gpu_mode2.s: src/gpu_mode2.cu.s
+main.s: main.cpp.s
 
-.PHONY : src/gpu_mode2.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-src/gpu_mode2.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/gpu_mode2.cu.s
-.PHONY : src/gpu_mode2.cu.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game_of_life.dir/build.make CMakeFiles/game_of_life.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-src/gpu_simple.o: src/gpu_simple.cu.o
+src/gpu_cuda.o: src/gpu_cuda.cu.o
 
-.PHONY : src/gpu_simple.o
+.PHONY : src/gpu_cuda.o
 
 # target to build an object file
-src/gpu_simple.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o
-.PHONY : src/gpu_simple.cu.o
+src/gpu_cuda.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o
+.PHONY : src/gpu_cuda.cu.o
 
-src/gpu_simple.i: src/gpu_simple.cu.i
+src/gpu_cuda.i: src/gpu_cuda.cu.i
 
-.PHONY : src/gpu_simple.i
+.PHONY : src/gpu_cuda.i
 
 # target to preprocess a source file
-src/gpu_simple.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.i
-.PHONY : src/gpu_simple.cu.i
+src/gpu_cuda.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.i
+.PHONY : src/gpu_cuda.cu.i
 
-src/gpu_simple.s: src/gpu_simple.cu.s
+src/gpu_cuda.s: src/gpu_cuda.cu.s
 
-.PHONY : src/gpu_simple.s
+.PHONY : src/gpu_cuda.s
 
 # target to generate assembly for a file
-src/gpu_simple.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.s
-.PHONY : src/gpu_simple.cu.s
+src/gpu_cuda.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.s
+.PHONY : src/gpu_cuda.cu.s
 
-src/grid.o: src/grid.cpp.o
+src/gpu_cuda_mod1.o: src/gpu_cuda_mod1.cu.o
 
-.PHONY : src/grid.o
+.PHONY : src/gpu_cuda_mod1.o
 
 # target to build an object file
-src/grid.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/grid.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/grid.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/grid.cpp.o
-.PHONY : src/grid.cpp.o
+src/gpu_cuda_mod1.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod1.dir/build.make CMakeFiles/cuda_gol_mod1.dir/src/gpu_cuda_mod1.cu.o
+.PHONY : src/gpu_cuda_mod1.cu.o
 
-src/grid.i: src/grid.cpp.i
+src/gpu_cuda_mod1.i: src/gpu_cuda_mod1.cu.i
 
-.PHONY : src/grid.i
+.PHONY : src/gpu_cuda_mod1.i
 
 # target to preprocess a source file
-src/grid.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/grid.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/grid.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/grid.cpp.i
-.PHONY : src/grid.cpp.i
+src/gpu_cuda_mod1.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod1.dir/build.make CMakeFiles/cuda_gol_mod1.dir/src/gpu_cuda_mod1.cu.i
+.PHONY : src/gpu_cuda_mod1.cu.i
 
-src/grid.s: src/grid.cpp.s
+src/gpu_cuda_mod1.s: src/gpu_cuda_mod1.cu.s
 
-.PHONY : src/grid.s
+.PHONY : src/gpu_cuda_mod1.s
 
 # target to generate assembly for a file
-src/grid.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/grid.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/grid.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/grid.cpp.s
-.PHONY : src/grid.cpp.s
+src/gpu_cuda_mod1.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod1.dir/build.make CMakeFiles/cuda_gol_mod1.dir/src/gpu_cuda_mod1.cu.s
+.PHONY : src/gpu_cuda_mod1.cu.s
 
-src/main.o: src/main.cpp.o
+src/gpu_cuda_mod2.o: src/gpu_cuda_mod2.cu.o
 
-.PHONY : src/main.o
+.PHONY : src/gpu_cuda_mod2.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/main.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/main.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/gpu_cuda_mod2.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod2.dir/build.make CMakeFiles/cuda_gol_mod2.dir/src/gpu_cuda_mod2.cu.o
+.PHONY : src/gpu_cuda_mod2.cu.o
 
-src/main.i: src/main.cpp.i
+src/gpu_cuda_mod2.i: src/gpu_cuda_mod2.cu.i
 
-.PHONY : src/main.i
+.PHONY : src/gpu_cuda_mod2.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/main.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/main.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/main.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/gpu_cuda_mod2.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod2.dir/build.make CMakeFiles/cuda_gol_mod2.dir/src/gpu_cuda_mod2.cu.i
+.PHONY : src/gpu_cuda_mod2.cu.i
 
-src/main.s: src/main.cpp.s
+src/gpu_cuda_mod2.s: src/gpu_cuda_mod2.cu.s
 
-.PHONY : src/main.s
+.PHONY : src/gpu_cuda_mod2.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/main.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/main.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/main.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-src/test.o: src/test.cpp.o
-
-.PHONY : src/test.o
-
-# target to build an object file
-src/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/test.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/test.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/test.cpp.o
-.PHONY : src/test.cpp.o
-
-src/test.i: src/test.cpp.i
-
-.PHONY : src/test.i
-
-# target to preprocess a source file
-src/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/test.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/test.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/test.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/test.cpp.i
-.PHONY : src/test.cpp.i
-
-src/test.s: src/test.cpp.s
-
-.PHONY : src/test.s
-
-# target to generate assembly for a file
-src/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mode1.dir/build.make CMakeFiles/cuda_gol_mode1.dir/src/test.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol__mode2.dir/build.make CMakeFiles/cuda_gol__mode2.dir/src/test.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_simple.dir/build.make CMakeFiles/cuda_gol_simple.dir/src/test.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/grid.dir/build.make CMakeFiles/grid.dir/src/test.cpp.s
-.PHONY : src/test.cpp.s
+src/gpu_cuda_mod2.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cuda_gol_mod2.dir/build.make CMakeFiles/cuda_gol_mod2.dir/src/gpu_cuda_mod2.cu.s
+.PHONY : src/gpu_cuda_mod2.cu.s
 
 # Help Target
 help:
@@ -545,35 +438,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ComwayGameOfLifeTests"
-	@echo "... CudaGameOfLife"
-	@echo "... cuda_gol__mode2"
-	@echo "... cuda_gol_mode1"
+	@echo "... cuda_gol_mod1"
+	@echo "... cuda_gol_mod2"
 	@echo "... cuda_gol_simple"
 	@echo "... game_of_life"
 	@echo "... game_of_life_lib"
 	@echo "... gmock"
 	@echo "... gmock_main"
-	@echo "... grid"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... src/gpu_mode1.o"
-	@echo "... src/gpu_mode1.i"
-	@echo "... src/gpu_mode1.s"
-	@echo "... src/gpu_mode2.o"
-	@echo "... src/gpu_mode2.i"
-	@echo "... src/gpu_mode2.s"
-	@echo "... src/gpu_simple.o"
-	@echo "... src/gpu_simple.i"
-	@echo "... src/gpu_simple.s"
-	@echo "... src/grid.o"
-	@echo "... src/grid.i"
-	@echo "... src/grid.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... src/gpu_cuda.o"
+	@echo "... src/gpu_cuda.i"
+	@echo "... src/gpu_cuda.s"
+	@echo "... src/gpu_cuda_mod1.o"
+	@echo "... src/gpu_cuda_mod1.i"
+	@echo "... src/gpu_cuda_mod1.s"
+	@echo "... src/gpu_cuda_mod2.o"
+	@echo "... src/gpu_cuda_mod2.i"
+	@echo "... src/gpu_cuda_mod2.s"
 .PHONY : help
 
 

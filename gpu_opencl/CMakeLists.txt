@@ -45,10 +45,15 @@ message(STATUS "OpenCL libraries: ${OPENCL_LIBRARIES}")
 add_executable(gol main.cpp ${HEADERS})
 
 add_executable(opencl_gol_simple src/opencl_simple.cpp ${HEADERS})
-add_executable(opencl_gol_mod1 src/opencl_mod1.cpp ${HEADERS})
-add_executable(opencl_gol_mod2 src/opencl_mod2.cpp ${HEADERS})
 
-#target_link_libraries(game_of_life_opencl OpenCL::OpenCL)
+target_link_libraries(opencl_gol_simple "C:/Windows/System32/OpenCL.dll")
+add_executable(opencl_gol_mod1 src/opencl_mod1.cpp ${HEADERS})
+target_link_libraries(opencl_gol_mod1 "C:/Windows/System32/OpenCL.dll")
+
+add_executable(opencl_gol_mod2 src/opencl_mod2.cpp ${HEADERS})
+target_link_libraries(opencl_gol_mod2 "C:/Windows/System32/OpenCL.dll")
+
+#target_link_libraries(game_of_life_opencl "C:/Windows/System32/OpenCL.dll")
 
 add_subdirectory(src)
 ##add_subdirectory(extern)

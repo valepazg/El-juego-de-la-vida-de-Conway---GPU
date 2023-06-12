@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/opencl_gol_simple.dir/src/opencl_simple.cpp.o -o opencl_gol_simple   -L/usr/lib/x86_64-linux-gnu/libOpenCL.so 

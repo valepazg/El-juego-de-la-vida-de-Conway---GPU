@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o -o ComwayGameOfLifeTests   -L/usr/lib/x86_64-linux-gnu/libOpenCL.so  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/libOpenCL.so ../../../lib/libgtest_main.a ../src/libgame_of_life_lib.a ../../../lib/libgtest.a -lpthread 

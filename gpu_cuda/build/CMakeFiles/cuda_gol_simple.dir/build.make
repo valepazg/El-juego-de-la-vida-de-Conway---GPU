@@ -76,75 +76,30 @@ include CMakeFiles/cuda_gol_simple.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cuda_gol_simple.dir/flags.make
 
-CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o: CMakeFiles/cuda_gol_simple.dir/flags.make
-CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o: ../src/gpu_simple.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -x cu -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/gpu_simple.cu -o CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o
+CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o: CMakeFiles/cuda_gol_simple.dir/flags.make
+CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o: ../src/gpu_cuda.cu
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -x cu -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/gpu_cuda.cu -o CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o
 
-CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.i"
+CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CUDA source to CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.s"
+CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CUDA source to assembly CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
-
-CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o: CMakeFiles/cuda_gol_simple.dir/flags.make
-CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o: ../src/grid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/grid.cpp
-
-CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/grid.cpp > CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.i
-
-CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/grid.cpp -o CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.s
-
-CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o: CMakeFiles/cuda_gol_simple.dir/flags.make
-CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/main.cpp
-
-CMakeFiles/cuda_gol_simple.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cuda_gol_simple.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/main.cpp > CMakeFiles/cuda_gol_simple.dir/src/main.cpp.i
-
-CMakeFiles/cuda_gol_simple.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cuda_gol_simple.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/main.cpp -o CMakeFiles/cuda_gol_simple.dir/src/main.cpp.s
-
-CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o: CMakeFiles/cuda_gol_simple.dir/flags.make
-CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o: ../src/test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o -c /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/test.cpp
-
-CMakeFiles/cuda_gol_simple.dir/src/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cuda_gol_simple.dir/src/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/test.cpp > CMakeFiles/cuda_gol_simple.dir/src/test.cpp.i
-
-CMakeFiles/cuda_gol_simple.dir/src/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cuda_gol_simple.dir/src/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/test.cpp -o CMakeFiles/cuda_gol_simple.dir/src/test.cpp.s
 
 # Object files for target cuda_gol_simple
 cuda_gol_simple_OBJECTS = \
-"CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o" \
-"CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o" \
-"CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o" \
-"CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o"
+"CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o"
 
 # External object files for target cuda_gol_simple
 cuda_gol_simple_EXTERNAL_OBJECTS =
 
-cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o
-cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o
-cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o
-cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o
+cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o
 cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/build.make
 cuda_gol_simple: CMakeFiles/cuda_gol_simple.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable cuda_gol_simple"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CUDA executable cuda_gol_simple"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cuda_gol_simple.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

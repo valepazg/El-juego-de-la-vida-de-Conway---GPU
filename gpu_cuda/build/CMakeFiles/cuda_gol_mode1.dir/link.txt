@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/cuda_gol_mode1.dir/src/gpu_mode1.cu.o CMakeFiles/cuda_gol_mode1.dir/src/grid.cpp.o CMakeFiles/cuda_gol_mode1.dir/src/main.cpp.o CMakeFiles/cuda_gol_mode1.dir/src/test.cpp.o -o cuda_gol_mode1   -L/usr/lib/x86_64-linux-gnu/stubs  -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

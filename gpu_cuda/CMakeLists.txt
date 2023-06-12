@@ -1,11 +1,10 @@
-cmake_minimum_required(VERSION 3.18.4)
+cmake_minimum_required(VERSION 3.16.1)
 set(CMAKE_CXX_STANDARD 17)
-set(CUDA_COMWAY_GAME_OF_LIFE CudaGameOfLife)
+set(COMWAY_GAME_OF_LIFE game_of_life)
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-project(${CUDA_COMWAY_GAME_OF_LIFE} LANGUAGES CUDA CXX)
-
-find_package(CUDA REQUIRED)
+set(ASSETS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/assets")
 
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     SET(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
@@ -14,25 +13,56 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
         "MinSizeRel" "RelWithDebInfo")
 endif()
 
+
+##################################
+############ PROJECT #############
+##################################
+
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+  set(CMAKE_CUDA_ARCHITECTURES 75)
+endif()
+
+
+project(${COMWAY_GAME_OF_LIFE} LANGUAGES CXX CUDA)
+find_package(CUDA REQUIRED)
+
 file(GLOB CUDA_SOURCES src/*.cu)
 file(GLOB CPP_SOURCES src/*.cpp)
 
-file(GLOB HEADERS include/GudaGameOfLife/*.hpp)
+file(GLOB HEADERS include/GameOfLife/*.hpp)
 
-add_executable(grid src/grid.cpp ${CPP_SOURCES} ${HEADERS})
-add_executable(cuda_gol_simple src/gpu_simple.cu ${CPP_SOURCES} ${HEADERS})
-add_executable(cuda_gol_mode1 src/gpu_mode1.cu ${CPP_SOURCES} ${HEADERS})
-add_executable(cuda_gol__mode2 src/gpu_mode2.cu ${CPP_SOURCES} ${HEADERS})
+
+add_executable(${PROJECT_NAME} main.cpp)
+add_executable(cuda_gol_simple src/gpu_cuda.cu ${HEADERS})
+add_executable(cuda_gol_mod1 src/gpu_cuda_mod1.cu ${HEADERS})
+add_executable(cuda_gol_mod2 src/gpu_cuda_mod2.cu ${HEADERS})
+
+# Opencl add
+find_package(OpenCL REQUIRED)
+find_package(OpenGL REQUIRED)
+
+
+INCLUDE_DIRECTORIES(${OpenCL_INCLUDE_DIRS})
+
+LINK_DIRECTORIES(${OpenCL_LIBRARY})
+
+message(STATUS "OpenCL found: ${OPENCL_FOUND}")
+message(STATUS "OpenCL includes: ${OPENCL_INCLUDE_DIRS}")
+message(STATUS "OpenCL CXX includes: ${OPENCL_HAS_CPP_BINDINGS}")
+message(STATUS "OpenCL libraries: ${OPENCL_LIBRARIES}")
+
+#target_link_libraries(game_of_life_opencl OpenCL::OpenCL)
 
 
 add_subdirectory(src)
 add_subdirectory(extern)
+#add_subdirectory(include)
 add_subdirectory(tests)
 
+file(GLOB common_src "common/*.cpp")
+###############
+### GTEST #####
 
 enable_testing()
 
-target_link_libraries(${PROJECT_NAME} CudaGameOfLife_lib)
-
-
-
+target_link_libraries(${PROJECT_NAME} game_of_life_lib)

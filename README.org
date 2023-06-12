@@ -1,0 +1,155 @@
+Este es un tutorial para ejecutar la compilación y correr los
+programas de simulación para los casos estudiados.
+
+* Solución CPU
+
+En el directorio *cpu_serial*, se mantiene una estructura para
+*cmake*.
+
+#+begin_src bash :exports both value
+tree -d -L 1 cpu_serial
+#+end_src
+
+#+RESULTS:
+| cpu_serial |             |
+| ├──        | assets      |
+| ├──        | build       |
+| ├──        | common      |
+| ├──        | extern      |
+| ├──        | include     |
+| ├──        | src         |
+| └──        | tests       |
+|            |             |
+| 7          | directories |
+
+Para compilar este código, requiere tener activado el compilador de
+cuda.
+
+En *build* realizar la compilación de manera tradicional:
+
+#+begin_example
+cmake ..
+make
+#+end_example
+
+Lo que crea los binarios correspondientes de los programas:
+
+#+begin_example
+game_of_life
+#+end_example
+
+Además contiene la implementación de una clase *Grid* para cargar
+diferentes configuraciones iniciales de un ambiente *Juego de la
+Vida*.
+
+
+* Solución GPU OpenCl
+
+Esta solución está hecha para sistema operativo *windows*, en tanto
+enlace de librerías y estructura de llamadas del código. 
+
+El directorio *gpu_opencl* mantiene una estructura base de *cmake*,
+como se observa:
+
+#+begin_src bash :exports both value
+tree -d -L 1 gpu_opencl
+#+end_src
+
+#+RESULTS:
+| gpu_opencl |             |
+| ├──        | assets      |
+| ├──        | build       |
+| ├──        | extern      |
+| ├──        | include     |
+| └──        | src         |
+|            |             |
+| 5          | directories |
+
+Este direcotrio contiene la simulación del juego de la vida
+implementada en OpenCL. Dentro de la carpeta src se puede encontrar el
+código fuente de las distintas implementaciones pedidas: 
+
+- opencl_simple.cpp contiene la implementacion serial paralelizada, es decir, la implementación serial en CPU llevada a GPU para 
+aprovechar la paralelización de la grilla universo.
+
+- opencl_mod1.cpp contiene la implementación de una optimización usando sentencias if para verificar el estado de la vecindad de una celda.
+
+- opencl_mod2.cpp contiene la implementación de una optimización usando matrices de 2 dimensiones en lugar de mapear a 1 dimensión.
+
+Los /kernel/ están implementados dentro de los archivos descritos
+anteriormente, pero de igual manera se encuentran en los archivos:
+
+- simpleLifeKernel.cl 
+- mod1LifeKernel.cl
+- mod2LifeKernel.cl
+
+Dentro de la carpeta build están los archivos .csv que se obtienen luego de ejecutar los programas. Si se corre el código con las
+instrucciones que se mostrarán más adelante, se sobreescribirán estos archivos.
+
+** Cómo correr el código con CMake
+
+La siguientes instrucciones se ejecutaron en un equipo con Windows.
+
+1. En el archivo CMakeLists.txt principal, cambiar en las líneas 49, 51 y 54 el texto "C:/Windows/System32/OpenCL.dll" por la ruta
+del equipo donde se encuentra la librería de OpenCL.
+
+2. Borrar todos los archivos incluidos en la carpeta build (no se entregó vacío para que el revisor pudiera examinar los resultados esperados).
+
+3. Abrir un terminal en dicha carpeta.
+
+4. Ejecutar  cmake ../ -DOpenCL_FOUND=True -DOpenCL_LIBRARY=<path_to_OpenCL_library>, cambiando el texto path_to_OpenCL_library por la misma 
+ruta del paso 1.
+
+5. Ejecutar  cmake --build .
+
+6. Copiar a la carpeta build los archivos mod1LifeKernel.cl y mod2LifeKernel.cl que se encuentran en la carpeta src.
+
+7. Ejecutar ./opencl_gol_simple.exe, deberían ejecutarse los prints de los resultados obtenidos por cada iteración de la simulación
+por cada tamaño de grilla y crearse el archivo opencl_simple.csv en la carpeta build.
+
+8. Repetir el paso 7 ejecutando ./opencl_gol_mod1.exe y
+   ./opencl_gol_mod1.exe
+
+
+* Solución GPU Cuda
+
+En el directorio *gpu_cuda*, se mantiene una estructura para *cmake*,
+la solución se implementa para sistema operativo *gnu/linux*, en un
+equipo con una tarjeta nvidia /geforce 940m/.
+
+#+begin_src bash :exports both value
+tree -d -L 1 gpu_cuda
+#+end_src
+
+#+RESULTS:
+| gpu_cuda |             |
+| ├──      | assets      |
+| ├──      | build       |
+| ├──      | common      |
+| ├──      | extern      |
+| ├──      | include     |
+| ├──      | src         |
+| └──      | tests       |
+|          |             |
+| 7        | directories |
+
+Para compilar este código, requiere tener activado el compilador de
+cuda.
+
+En *build* realizar la compilación de manera tradicional:
+
+#+begin_example
+cmake ..
+make
+#+end_example
+
+Lo que crea los binarios correspondientes de los programas:
+
+#+begin_example
+cuda_gol_simple
+cuda_gol_mod1
+cuda_gol_mod2
+#+end_example
+
+Cada uno corresponde a una modalidad de simulación correspondiente a
+lo mencionado en el informe.

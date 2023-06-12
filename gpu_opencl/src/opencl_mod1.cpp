@@ -31,6 +31,58 @@ using std::chrono::milliseconds;
 
 int main(void){
 
+    std::string kernelSource = R"(
+
+	   __kernel void mod1LifeKernel(__global uint* lifeData, __global uint* resultLifeData, const size_t worldWidth, const size_t worldHeight){
+    int cellId = get_global_id(0);  
+    size_t worldSize = worldWidth * worldHeight;   
+   
+    size_t x = cellId % worldWidth;
+    size_t yAbs = cellId - x;
+    size_t xLeft = (x + worldWidth - 1) % worldWidth;
+    size_t xRight = (x + 1) % worldWidth;
+    size_t yAbsUp = (yAbs + worldSize - worldWidth) % worldSize;
+    size_t yAbsDown = (yAbs + worldWidth) % worldSize;
+    
+    size_t aliveCells = 0;
+
+    if(lifeData[xLeft + yAbsUp] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[x + yAbsUp] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[xRight + yAbsUp] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[xLeft + yAbs] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[xRight + yAbs] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[xLeft + yAbsDown] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[x + yAbsDown] == 1){
+        aliveCells++;
+    }
+
+    if(lifeData[xRight + yAbsDown] == 1){
+        aliveCells++;
+    }
+
+    resultLifeData[x + yAbs] = (aliveCells == 3 || (aliveCells == 2 && lifeData[x + yAbs])) ? 1 : 0;
+}      
+
+    )";
+
     // abrir un archivo csv para guardar los datos
     ofstream file("opencl_mod1.csv");
     if (!file.is_open()) {
@@ -71,7 +123,7 @@ int main(void){
         
             // Create the kernel functor
 
-            auto mod1LifeKernel = cl::make_kernel<cl::Buffer, cl::Buffer, size_t, size_t>(program, "mod1LifeKernel");
+            auto mod1LifeKernel = cl::compatibility::make_kernel<cl::Buffer, cl::Buffer, size_t, size_t>(program, "mod1LifeKernel");
         
             cl::Buffer d_lifeData(context, begin(h_lifeData), end(h_lifeData), true);
             cl::Buffer d_resultLifeData(context, CL_MEM_WRITE_ONLY, sizeof(uint) * dataLength);
@@ -80,7 +132,12 @@ int main(void){
                 
                 auto start_time = high_resolution_clock::now();
                 
-                mod1LifeKernel(cl::EnqueueArgs(queue,cl::NDRange(dataLength)), d_lifeData, d_resultLifeData, worldWidth, worldHeight);
+                mod1LifeKernel(
+							   cl::EnqueueArgs(queue,cl::NDRange(dataLength)), 
+							   d_lifeData, 
+							   d_resultLifeData, 
+							   worldWidth, 
+							   worldHeight);
                 queue.finish();
                 swap(d_lifeData, d_resultLifeData);
                 cl::copy(queue, d_lifeData, begin(h_lifeData), end(h_lifeData));

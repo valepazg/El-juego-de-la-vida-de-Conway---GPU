@@ -1,1 +1,1 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o -o cuda_gol_simple   -L/usr/lib/x86_64-linux-gnu/stubs  -lcudadevrt -lcudart_static -lrt -lpthread -ldl 
+/usr/lib/nvidia-cuda-toolkit/bin/g++ CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o -o cuda_gol_simple  -lcudadevrt -lcudart_static -lrt -lpthread -ldl  -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"

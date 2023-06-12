@@ -1,0 +1,15 @@
+# ninja log v5
+21	3551	7081528476932019	CMakeFiles/opencl_gol_mod1.dir/src/opencl_mod1.cpp.obj	5c3aaf6f2b55448a
+32	4459	7081528857001121	src/CMakeFiles/game_of_life_lib.dir/opencl_mod2.cpp.obj	533f3bea10c39e60
+37	3556	7081528476932019	src/CMakeFiles/game_of_life_lib.dir/opencl_mod1.cpp.obj	b47a071e882342e7
+36	267	7081529410084539	src/libgame_of_life_lib.a	3fe5367a2476529d
+22	7019	7081362750266625	src/CMakeFiles/game_of_life_lib.dir/opencl_simple.cpp.obj	7940d1062571ad62
+309	611	7081353485701906	gol.exe	940b183a6142fa7a
+14	7021	7081362750266625	CMakeFiles/opencl_gol_simple.dir/src/opencl_simple.cpp.obj	d1db5b3fbc1f4c98
+5	306	7081353482962021	CMakeFiles/gol.dir/main.cpp.obj	3e6755bcfa6a46a0
+2	197	7081534544291160	build.ninja	e389d30334f323bf
+27	4456	7081528857001121	CMakeFiles/opencl_gol_mod2.dir/src/opencl_mod2.cpp.obj	62f748d7f8e9f4d9
+29	167	7081372387097364	opencl_gol_simple.exe	cb0b394411606c59
+2	197	7081534544291160	build.ninja	e389d30334f323bf
+36	188	7081534546198878	opencl_gol_mod2.exe	12b51950b51c7e7e
+31	202	7081534546198878	opencl_gol_mod1.exe	19c208083db84dbe

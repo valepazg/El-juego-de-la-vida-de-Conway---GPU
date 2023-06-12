@@ -1,26 +1,15 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
   "CUDA"
-  "CXX"
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CUDA
-  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/gpu_simple.cu" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles/cuda_gol_simple.dir/src/gpu_simple.cu.o"
+  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/gpu_cuda.cu" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles/cuda_gol_simple.dir/src/gpu_cuda.cu.o"
   )
 set(CMAKE_CUDA_COMPILER_ID "NVIDIA")
 
 # The include file search paths:
 set(CMAKE_CUDA_TARGET_INCLUDE_PATH
-  )
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/grid.cpp" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles/cuda_gol_simple.dir/src/grid.cpp.o"
-  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/main.cpp" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles/cuda_gol_simple.dir/src/main.cpp.o"
-  "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/src/test.cpp" "/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles/cuda_gol_simple.dir/src/test.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.

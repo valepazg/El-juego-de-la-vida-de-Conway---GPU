@@ -75,18 +75,6 @@ CMAKE_BINARY_DIR = /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Co
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -154,6 +142,18 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/CMakeFiles /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build/src//CMakeFiles/progress.marks
@@ -187,100 +187,100 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/CudaGameOfLife.dir/rule:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/CudaGameOfLife.dir/rule
-.PHONY : src/CMakeFiles/CudaGameOfLife.dir/rule
+src/CMakeFiles/game_of_life_lib.dir/rule:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/game_of_life_lib.dir/rule
+.PHONY : src/CMakeFiles/game_of_life_lib.dir/rule
 
 # Convenience name for target.
-CudaGameOfLife: src/CMakeFiles/CudaGameOfLife.dir/rule
+game_of_life_lib: src/CMakeFiles/game_of_life_lib.dir/rule
 
-.PHONY : CudaGameOfLife
+.PHONY : game_of_life_lib
 
 # fast build rule for target.
-CudaGameOfLife/fast:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/build
-.PHONY : CudaGameOfLife/fast
+game_of_life_lib/fast:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/build
+.PHONY : game_of_life_lib/fast
 
-gpu_mode1.o: gpu_mode1.cu.o
+cpu_serial.o: cpu_serial.cpp.o
 
-.PHONY : gpu_mode1.o
-
-# target to build an object file
-gpu_mode1.cu.o:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode1.cu.o
-.PHONY : gpu_mode1.cu.o
-
-gpu_mode1.i: gpu_mode1.cu.i
-
-.PHONY : gpu_mode1.i
-
-# target to preprocess a source file
-gpu_mode1.cu.i:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode1.cu.i
-.PHONY : gpu_mode1.cu.i
-
-gpu_mode1.s: gpu_mode1.cu.s
-
-.PHONY : gpu_mode1.s
-
-# target to generate assembly for a file
-gpu_mode1.cu.s:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode1.cu.s
-.PHONY : gpu_mode1.cu.s
-
-gpu_mode2.o: gpu_mode2.cu.o
-
-.PHONY : gpu_mode2.o
+.PHONY : cpu_serial.o
 
 # target to build an object file
-gpu_mode2.cu.o:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode2.cu.o
-.PHONY : gpu_mode2.cu.o
+cpu_serial.cpp.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.o
+.PHONY : cpu_serial.cpp.o
 
-gpu_mode2.i: gpu_mode2.cu.i
+cpu_serial.i: cpu_serial.cpp.i
 
-.PHONY : gpu_mode2.i
+.PHONY : cpu_serial.i
 
 # target to preprocess a source file
-gpu_mode2.cu.i:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode2.cu.i
-.PHONY : gpu_mode2.cu.i
+cpu_serial.cpp.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.i
+.PHONY : cpu_serial.cpp.i
 
-gpu_mode2.s: gpu_mode2.cu.s
+cpu_serial.s: cpu_serial.cpp.s
 
-.PHONY : gpu_mode2.s
+.PHONY : cpu_serial.s
 
 # target to generate assembly for a file
-gpu_mode2.cu.s:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_mode2.cu.s
-.PHONY : gpu_mode2.cu.s
+cpu_serial.cpp.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/cpu_serial.cpp.s
+.PHONY : cpu_serial.cpp.s
 
-gpu_simple.o: gpu_simple.cu.o
+gpu_cuda.o: gpu_cuda.cu.o
 
-.PHONY : gpu_simple.o
+.PHONY : gpu_cuda.o
 
 # target to build an object file
-gpu_simple.cu.o:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_simple.cu.o
-.PHONY : gpu_simple.cu.o
+gpu_cuda.cu.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/gpu_cuda.cu.o
+.PHONY : gpu_cuda.cu.o
 
-gpu_simple.i: gpu_simple.cu.i
+gpu_cuda.i: gpu_cuda.cu.i
 
-.PHONY : gpu_simple.i
+.PHONY : gpu_cuda.i
 
 # target to preprocess a source file
-gpu_simple.cu.i:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_simple.cu.i
-.PHONY : gpu_simple.cu.i
+gpu_cuda.cu.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/gpu_cuda.cu.i
+.PHONY : gpu_cuda.cu.i
 
-gpu_simple.s: gpu_simple.cu.s
+gpu_cuda.s: gpu_cuda.cu.s
 
-.PHONY : gpu_simple.s
+.PHONY : gpu_cuda.s
 
 # target to generate assembly for a file
-gpu_simple.cu.s:
-	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/CudaGameOfLife.dir/build.make src/CMakeFiles/CudaGameOfLife.dir/gpu_simple.cu.s
-.PHONY : gpu_simple.cu.s
+gpu_cuda.cu.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/gpu_cuda.cu.s
+.PHONY : gpu_cuda.cu.s
+
+grid.o: grid.cpp.o
+
+.PHONY : grid.o
+
+# target to build an object file
+grid.cpp.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/grid.cpp.o
+.PHONY : grid.cpp.o
+
+grid.i: grid.cpp.i
+
+.PHONY : grid.i
+
+# target to preprocess a source file
+grid.cpp.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/grid.cpp.i
+.PHONY : grid.cpp.i
+
+grid.s: grid.cpp.s
+
+.PHONY : grid.s
+
+# target to generate assembly for a file
+grid.cpp.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/game_of_life_lib.dir/build.make src/CMakeFiles/game_of_life_lib.dir/grid.cpp.s
+.PHONY : grid.cpp.s
 
 # Help Target
 help:
@@ -295,16 +295,16 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... CudaGameOfLife"
-	@echo "... gpu_mode1.o"
-	@echo "... gpu_mode1.i"
-	@echo "... gpu_mode1.s"
-	@echo "... gpu_mode2.o"
-	@echo "... gpu_mode2.i"
-	@echo "... gpu_mode2.s"
-	@echo "... gpu_simple.o"
-	@echo "... gpu_simple.i"
-	@echo "... gpu_simple.s"
+	@echo "... game_of_life_lib"
+	@echo "... cpu_serial.o"
+	@echo "... cpu_serial.i"
+	@echo "... cpu_serial.s"
+	@echo "... gpu_cuda.o"
+	@echo "... gpu_cuda.i"
+	@echo "... gpu_cuda.s"
+	@echo "... grid.o"
+	@echo "... grid.i"
+	@echo "... grid.s"
 .PHONY : help
 
 

@@ -186,6 +186,48 @@ depend:
 	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
+.PHONY : tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
+
+# Convenience name for target.
+ComwayGameOfLifeTests: tests/CMakeFiles/ComwayGameOfLifeTests.dir/rule
+
+.PHONY : ComwayGameOfLifeTests
+
+# fast build rule for target.
+ComwayGameOfLifeTests/fast:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/build
+.PHONY : ComwayGameOfLifeTests/fast
+
+testGrid.o: testGrid.cpp.o
+
+.PHONY : testGrid.o
+
+# target to build an object file
+testGrid.cpp.o:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.o
+.PHONY : testGrid.cpp.o
+
+testGrid.i: testGrid.cpp.i
+
+.PHONY : testGrid.i
+
+# target to preprocess a source file
+testGrid.cpp.i:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.i
+.PHONY : testGrid.cpp.i
+
+testGrid.s: testGrid.cpp.s
+
+.PHONY : testGrid.s
+
+# target to generate assembly for a file
+testGrid.cpp.s:
+	cd /home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/gpu_cuda/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/ComwayGameOfLifeTests.dir/build.make tests/CMakeFiles/ComwayGameOfLifeTests.dir/testGrid.cpp.s
+.PHONY : testGrid.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -199,6 +241,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... ComwayGameOfLifeTests"
+	@echo "... testGrid.o"
+	@echo "... testGrid.i"
+	@echo "... testGrid.s"
 .PHONY : help
 
 
