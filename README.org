@@ -1,5 +1,13 @@
+* Tutorial de Compilación Game of Life Comway
+
 Este es un tutorial para ejecutar la compilación y correr los
 programas de simulación para los casos estudiados.
+
+Los lenguajes utilizados para las simulaciones son:
+
+- c++
+- gpu cuda nvidia
+- gpu opencl
 
 * Solución CPU
 
