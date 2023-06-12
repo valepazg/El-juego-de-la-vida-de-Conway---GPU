@@ -23,6 +23,9 @@ size_t m_dataLength;  // m_worldWidth * m_worldHeight
 
 // funcion para contar las celdas vivas alrededor de la celda (x1,y1)
 uint countAliveCells(size_t x0, size_t x1, size_t x2, size_t y0, size_t y1, size_t y2, uint *&m_data) {
+  /*
+	condiciones de borde
+   */
     return m_data[y0 + x0] + m_data[y0 + x1] + m_data[y0 + x2] + m_data[y1 + x0] + 
            m_data[y1 + x2] + m_data[y2 + x0] + m_data[y2 + x1] + m_data[y2 + x2];
 

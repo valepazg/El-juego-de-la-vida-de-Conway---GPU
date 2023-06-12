@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/GameOfLife/grid.hpp
+iostream
+-
+string
+-
+cassert
+-
+cmath
+-
+vector
+-
+filesystem
+-
+
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/cpu_serial/src/grid.cpp
+iostream
+-
+string
+-
+cassert
+-
+cmath
+-
+fstream
+-
+sstream
+-
+GameOfLife/grid.hpp
+/home/david/Documentos/Magister-GPU/El-juego-de-la-vida-de-Conway---GPU/cpu_serial/src/GameOfLife/grid.hpp
+random
+-
+functional
+-
+

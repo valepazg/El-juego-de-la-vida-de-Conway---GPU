@@ -1,0 +1,14 @@
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/gol.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/opencl_gol_simple.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/opencl_gol_mod1.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/opencl_gol_mod2.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/test.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/edit_cache.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/CMakeFiles/rebuild_cache.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/src/CMakeFiles/game_of_life_lib.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/src/CMakeFiles/test.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/src/CMakeFiles/edit_cache.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/include/CMakeFiles/test.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/include/CMakeFiles/edit_cache.dir
+C:/Users/valer/gpu_opencl/gpu_opencl/build/include/CMakeFiles/rebuild_cache.dir
